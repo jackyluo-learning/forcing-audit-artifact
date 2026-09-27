@@ -1,0 +1,12 @@
+tolerance,below_preregistered_resolution,floor_only_capacities,joint_any_direction_capacities,joint_positive_signal_capacities,joint_negative_signal_capacities,largest_positive_joint_capacity,target_only_icc_0.5_floor_only_capacities,target_only_icc_0.5_joint_any_direction_capacities,target_only_icc_0.5_joint_positive_signal_capacities,target_only_icc_0.5_joint_negative_signal_capacities,all_repeated_attempts_icc_0.5_floor_only_capacities,all_repeated_attempts_icc_0.5_joint_any_direction_capacities,all_repeated_attempts_icc_0.5_joint_positive_signal_capacities,all_repeated_attempts_icc_0.5_joint_negative_signal_capacities
+0.01,True,[],[],[],[],,[],[],[],[],[],[],[],[]
+0.05,True,[4],[],[],[],,[],[],[],[],[],[],[],[]
+0.09,False,[4],[],[],[],,[],[],[],[],"[1, 2, 3]",[],[],[]
+0.1,False,[4],[],[],[],,[],[],[],[],"[1, 2, 3, 4]",[],[],[]
+0.15,False,"[1, 2, 3, 4]",[],[],[],,"[1, 2, 3, 4]",[],[],[],"[1, 2, 3, 4]",[],[],[]
+0.2,False,"[1, 2, 3, 4]",[],[],[],,"[1, 2, 3, 4]",[],[],[],"[1, 2, 3, 4]",[],[],[]
+0.3,False,"[1, 2, 3, 4, 6]",[6],[6],[],6.0,"[1, 2, 3, 4]",[],[],[],"[1, 2, 3, 4]",[],[],[]
+0.5,False,"[1, 2, 3, 4, 6, 8]",[6],[6],[],6.0,"[1, 2, 3, 4, 6]",[],[],[],"[1, 2, 3, 4, 6]",[],[],[]
+0.75,False,"[1, 2, 3, 4, 6, 8, 12]",[6],[6],[],6.0,"[1, 2, 3, 4, 6, 8]",[],[],[],"[1, 2, 3, 4, 6, 8]",[],[],[]
+0.9,False,"[1, 2, 3, 4, 6, 8, 12, 16, 20, 24]",[6],[6],[],6.0,"[1, 2, 3, 4, 6, 8, 12, 16, 20]",[],[],[],"[1, 2, 3, 4, 6, 8, 12, 16, 20]",[],[],[]
+1.0,False,"[1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32, 48, 64]",[6],[6],[],6.0,"[1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32, 48, 64]",[],[],[],"[1, 2, 3, 4, 6, 8, 12, 16, 20, 24, 32, 48, 64]",[],[],[]

@@ -1,0 +1,5 @@
+model,trained_rate_percent,control_rate_percent,source_kind
+GPT-2 124M,52.0,52.0,reported_figure_constant
+GPT-2-M 355M,66.7,33.3,reported_figure_constant
+Pythia-1.4B,60.0,50.0,reported_figure_constant
+Pythia-2.8B,16.7,0.0,reported_figure_constant

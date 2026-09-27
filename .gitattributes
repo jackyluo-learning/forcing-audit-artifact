@@ -1,0 +1,8 @@
+*.parquet binary
+*.png binary
+*.pdf binary
+payloads/**/part-* binary
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf

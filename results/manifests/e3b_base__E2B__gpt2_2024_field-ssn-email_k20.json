@@ -1,0 +1,164 @@
+{
+  "schema": "run-manifest-v1",
+  "study_id": "e3b_base_sandwich_20260923",
+  "run_id": "e3b_base",
+  "exp_id": "E2B",
+  "shard": {
+    "model_name": "gpt2",
+    "model_state": "base",
+    "seed": 2024,
+    "capacity_k": 20,
+    "fields": [
+      "ssn",
+      "email"
+    ]
+  },
+  "gcg_iters": 200,
+  "target_subset_hash": "a01097acbb835207",
+  "n_targets": 100,
+  "arm_sizes": {
+    "D": 25,
+    "C": 25
+  },
+  "tier_composition": {
+    "1": 3,
+    "5": 7,
+    "20": 15
+  },
+  "code": {
+    "commit": "1d11bffbaf7fc3806e15fdc5b0281bacee99700e",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "env": {
+    "python": "3.11.5",
+    "pip_freeze_sha256_16": "b7516b82b8f38c90",
+    "faker": null,
+    "torch": "2.6.0+cu124",
+    "transformers": "5.16.1",
+    "lifelines": "0.30.0"
+  },
+  "accelerator": {
+    "device": "cuda",
+    "name": "NVIDIA A100 80GB PCIe",
+    "total_mem_gb": 79.1,
+    "count": 1
+  },
+  "config": {
+    "PII_CAP_SWEEP_N": "25",
+    "PII_DEVICE_PROFILE": "a100_80",
+    "PII_FIELDS": "ssn,email",
+    "PII_GCG_ITERS": "200",
+    "PII_RUN_ID": "e3b_base"
+  },
+  "pilot": false,
+  "frozen_targets": {
+    "manifest_sha256": "76c5f511019978ebad23751bc1a4f2b939807a38280b8a766065715a3205e182",
+    "target_values_sha256": "d0b81c7226c797e478269836598b8587484675cf02ee8d2e436787a0b5348cee",
+    "pair_assignment_sha256": "48fab4bf6013dbce7c8043f89e5e7b874189c0794362720bda7d735f1778935e"
+  },
+  "input_fingerprints": {
+    "e3b_sources": {
+      "registry": {
+        "sha256": "91901119f342d7d4ff9e052ceb7fce53bebacfe3fb593a7c1d7ff83a2e2978c6",
+        "bytes": 65170
+      },
+      "corpus": {
+        "sha256": "7a059fc04ae21665a464a5cb68eb87d2fae597d736f82869c24866e21d0e1acf",
+        "bytes": 57979000
+      },
+      "checkpoint": {
+        "files": {
+          "config.json": {
+            "sha256": "b0457be0f27b82ba744a0ef9a3d0ad03fbe7db9664537572c96edb5ec2f42555",
+            "bytes": 961
+          },
+          "generation_config.json": {
+            "sha256": "2e352d17c39026d25fd7994c102f94879e9047b348bfdd503a180c41f90f2b8c",
+            "bytes": 119
+          },
+          "model.safetensors": {
+            "sha256": "1cefaa4922d3e2474cf27a0e75a58b72447d1ef2742528972112b4dc89963b7a",
+            "bytes": 497774208
+          },
+          "tokenizer.json": {
+            "sha256": "9fe733f259ca91b0cfce8719f4c9c2d60a5fa57091ccb4855ddcaeb1981707a7",
+            "bytes": 3557778
+          },
+          "tokenizer_config.json": {
+            "sha256": "2ec6e8751bff5617ea5f342d96c69b50fba71826c0b2b9449c34fb55253432f4",
+            "bytes": 326
+          },
+          "train_meta.json": {
+            "sha256": "35188b0ae6dfebe0bf002702fa892e1a4d1203fb195d0c23280ffe06e45ee3d6",
+            "bytes": 367
+          }
+        },
+        "sha256": "53f223a44462e11d674c57d6ac65c9dd8c31e06c30955deb5870a74b14c310a0",
+        "bytes": 501333759
+      }
+    },
+    "base_snapshot": {
+      "files": {
+        "config.json": {
+          "sha256": "0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4",
+          "bytes": 665
+        },
+        "generation_config.json": {
+          "sha256": "ed0b32ac72c0f5f44a719abb2d7786ea5146c871f83717b7f2018065954de02b",
+          "bytes": 124
+        },
+        "merges.txt": {
+          "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+          "bytes": 456318
+        },
+        "model.safetensors": {
+          "sha256": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707",
+          "bytes": 548105171
+        },
+        "tokenizer.json": {
+          "sha256": "8414cab924d8b9b33013f0d221c5862f365ee9be39c5c2bfae8a5a9e970478a6",
+          "bytes": 1355256
+        },
+        "tokenizer_config.json": {
+          "sha256": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
+          "bytes": 26
+        },
+        "vocab.json": {
+          "sha256": "196139668be63f3b5d6574427317ae82f612a97c5d1cdaf36ed2256dbf636783",
+          "bytes": 1042301
+        }
+      },
+      "sha256": "90265451371a973b9e890f08e56100447117fe838d1b037f0ba8d0c3f48c017b",
+      "bytes": 550959861
+    }
+  },
+  "resolved_config": {
+    "target_set_id": "e3b",
+    "target_manifest_sha256": "76c5f511019978ebad23751bc1a4f2b939807a38280b8a766065715a3205e182",
+    "base_revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "base_fingerprint_sha256": "90265451371a973b9e890f08e56100447117fe838d1b037f0ba8d0c3f48c017b",
+    "model_name": "gpt2",
+    "model_state": "base",
+    "fields": [
+      "ssn",
+      "email"
+    ],
+    "capacity_k": 20,
+    "seed": 2024,
+    "n_pairs": 25,
+    "gcg_iters": 200,
+    "candidates_per_position_B": 256,
+    "candidate_evaluations_per_step": 512,
+    "candidate_minibatch": 64,
+    "early_stop_on_exact_match": true,
+    "extraction_check_interval": 10,
+    "decision_rule": "field-normalized substring exact_match"
+  },
+  "resolved_config_sha256": "d1c1381f7d1f4e60f3b53db6def8097f54241e408e76c3f807932b6cba4a6f2b",
+  "scheduler": {
+    "slurm_job_id": "682a5dee3901",
+    "slurm_array_job_id": null,
+    "slurm_array_task_id": null
+  }
+}

@@ -1,0 +1,1814 @@
+{
+  "schema": "e3b-h1-h5-analysis-v1",
+  "status": "accepted_formal_e3b_h1_h5_analysis",
+  "gate": {
+    "passed": true,
+    "formal_manifest_count": 42,
+    "formal_attempt_shard_count": 42,
+    "attempt_rows": 4200,
+    "coordinates": 42,
+    "expected_formal_commit": "a6fd908641489fd43cf7159f5e161b913efcc9e2",
+    "target_manifest_sha256": "76c5f511019978ebad23751bc1a4f2b939807a38280b8a766065715a3205e182",
+    "target_subset_hash": "a01097acbb835207",
+    "k_grid": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12,
+      16,
+      20,
+      24,
+      32,
+      48,
+      64
+    ],
+    "seeds": [
+      42,
+      1337,
+      2024
+    ],
+    "fields": [
+      "ssn",
+      "email"
+    ],
+    "frozen_exposure_counts": {
+      "trained": 50,
+      "control": 0
+    },
+    "trained_frequency_tiers": {
+      "1": 3,
+      "5": 7,
+      "20": 15
+    },
+    "accelerator_class": "A100",
+    "k0_seed42_control_exact_match_count": 0,
+    "repro_shards_included": 0
+  },
+  "bootstrap": {
+    "method": "two independent person blocks (C and D); one draw per block reused across all k; both fields and all three fixed attack seeds retained",
+    "replicates": 10000,
+    "seed": 20240601,
+    "n_people_per_block": {
+      "control": 25,
+      "trained": 25
+    }
+  },
+  "curve": [
+    {
+      "k": 0,
+      "probe": "fixed",
+      "control": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.0,
+      "tau_reported_95_ci": [
+        -0.10333504501592614,
+        0.10333504501592614
+      ],
+      "tau_person_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "tau_interval_method": "newcombe_mover_from_wilson_effective_n"
+    },
+    {
+      "k": 1,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.0,
+      "tau_reported_95_ci": [
+        -0.10333504501592614,
+        0.10333504501592614
+      ],
+      "tau_person_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "tau_interval_method": "newcombe_mover_from_wilson_effective_n"
+    },
+    {
+      "k": 2,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.0,
+      "tau_reported_95_ci": [
+        -0.10333504501592614,
+        0.10333504501592614
+      ],
+      "tau_person_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "tau_interval_method": "newcombe_mover_from_wilson_effective_n"
+    },
+    {
+      "k": 3,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.0,
+        "reported_95_ci": [
+          0.0,
+          0.10333504501592614
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.0
+        ],
+        "interval_method": "wilson_effective_n_at_boundary",
+        "hits": 0,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.0,
+      "tau_reported_95_ci": [
+        -0.10333504501592614,
+        0.10333504501592614
+      ],
+      "tau_person_bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "tau_interval_method": "newcombe_mover_from_wilson_effective_n"
+    },
+    {
+      "k": 4,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.006666666666666667,
+        "reported_95_ci": [
+          0.0,
+          0.02
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.02
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 1,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.02,
+        "reported_95_ci": [
+          0.0,
+          0.04
+        ],
+        "person_bootstrap_95_ci": [
+          0.0,
+          0.04
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 3,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.013333333333333332,
+      "tau_reported_95_ci": [
+        -0.013333333333333332,
+        0.04
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.013333333333333332,
+        0.04
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 6,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.18666666666666668,
+        "reported_95_ci": [
+          0.11333333333333333,
+          0.26666666666666666
+        ],
+        "person_bootstrap_95_ci": [
+          0.11333333333333333,
+          0.26666666666666666
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 28,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.32,
+        "reported_95_ci": [
+          0.24,
+          0.3933333333333333
+        ],
+        "person_bootstrap_95_ci": [
+          0.24,
+          0.3933333333333333
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 48,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.13333333333333333,
+      "tau_reported_95_ci": [
+        0.020000000000000018,
+        0.24000000000000002
+      ],
+      "tau_person_bootstrap_95_ci": [
+        0.020000000000000018,
+        0.24000000000000002
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 8,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.37333333333333335,
+        "reported_95_ci": [
+          0.30666666666666664,
+          0.44666666666666666
+        ],
+        "person_bootstrap_95_ci": [
+          0.30666666666666664,
+          0.44666666666666666
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 56,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.47333333333333333,
+        "reported_95_ci": [
+          0.4,
+          0.54
+        ],
+        "person_bootstrap_95_ci": [
+          0.4,
+          0.54
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 71,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.09999999999999998,
+      "tau_reported_95_ci": [
+        0.0,
+        0.19999999999999996
+      ],
+      "tau_person_bootstrap_95_ci": [
+        0.0,
+        0.19999999999999996
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 12,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.6733333333333333,
+        "reported_95_ci": [
+          0.62,
+          0.7333333333333333
+        ],
+        "person_bootstrap_95_ci": [
+          0.62,
+          0.7333333333333333
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 101,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.7,
+        "reported_95_ci": [
+          0.64,
+          0.76
+        ],
+        "person_bootstrap_95_ci": [
+          0.64,
+          0.76
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 105,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.026666666666666616,
+      "tau_reported_95_ci": [
+        -0.053333333333333344,
+        0.10666666666666669
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.053333333333333344,
+        0.10666666666666669
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 16,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.74,
+        "reported_95_ci": [
+          0.68,
+          0.8
+        ],
+        "person_bootstrap_95_ci": [
+          0.68,
+          0.8
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 111,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.7066666666666667,
+        "reported_95_ci": [
+          0.6333333333333333,
+          0.78
+        ],
+        "person_bootstrap_95_ci": [
+          0.6333333333333333,
+          0.78
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 106,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": -0.033333333333333326,
+      "tau_reported_95_ci": [
+        -0.1266666666666667,
+        0.06000000000000005
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.1266666666666667,
+        0.06000000000000005
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 20,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.7733333333333333,
+        "reported_95_ci": [
+          0.7133333333333334,
+          0.8333333333333334
+        ],
+        "person_bootstrap_95_ci": [
+          0.7133333333333334,
+          0.8333333333333334
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 116,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.8133333333333334,
+        "reported_95_ci": [
+          0.7466666666666667,
+          0.88
+        ],
+        "person_bootstrap_95_ci": [
+          0.7466666666666667,
+          0.88
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 122,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.040000000000000036,
+      "tau_reported_95_ci": [
+        -0.053333333333333344,
+        0.1333333333333333
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.053333333333333344,
+        0.1333333333333333
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 24,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.8133333333333334,
+        "reported_95_ci": [
+          0.7466666666666667,
+          0.88
+        ],
+        "person_bootstrap_95_ci": [
+          0.7466666666666667,
+          0.88
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 122,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.82,
+        "reported_95_ci": [
+          0.7466666666666667,
+          0.8866666666666667
+        ],
+        "person_bootstrap_95_ci": [
+          0.7466666666666667,
+          0.8866666666666667
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 123,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.006666666666666599,
+      "tau_reported_95_ci": [
+        -0.09333333333333327,
+        0.09999999999999998
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.09333333333333327,
+        0.09999999999999998
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 32,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.8666666666666667,
+        "reported_95_ci": [
+          0.8133333333333334,
+          0.9133333333333333
+        ],
+        "person_bootstrap_95_ci": [
+          0.8133333333333334,
+          0.9133333333333333
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 130,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.9,
+        "reported_95_ci": [
+          0.84,
+          0.9466666666666667
+        ],
+        "person_bootstrap_95_ci": [
+          0.84,
+          0.9466666666666667
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 135,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.033333333333333326,
+      "tau_reported_95_ci": [
+        -0.040000000000000036,
+        0.10666666666666669
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.040000000000000036,
+        0.10666666666666669
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 48,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.9066666666666666,
+        "reported_95_ci": [
+          0.86,
+          0.9466666666666667
+        ],
+        "person_bootstrap_95_ci": [
+          0.86,
+          0.9466666666666667
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 136,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.9466666666666667,
+        "reported_95_ci": [
+          0.9066666666666666,
+          0.98
+        ],
+        "person_bootstrap_95_ci": [
+          0.9066666666666666,
+          0.98
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 142,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": 0.040000000000000036,
+      "tau_reported_95_ci": [
+        -0.020000000000000018,
+        0.09999999999999998
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.020000000000000018,
+        0.09999999999999998
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    },
+    {
+      "k": 64,
+      "probe": "gcg_free",
+      "control": {
+        "estimate": 0.94,
+        "reported_95_ci": [
+          0.9066666666666666,
+          0.9666666666666667
+        ],
+        "person_bootstrap_95_ci": [
+          0.9066666666666666,
+          0.9666666666666667
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 141,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "trained": {
+        "estimate": 0.9333333333333333,
+        "reported_95_ci": [
+          0.8866666666666667,
+          0.9733333333333334
+        ],
+        "person_bootstrap_95_ci": [
+          0.8866666666666667,
+          0.9733333333333334
+        ],
+        "interval_method": "person_clustered_percentile_bootstrap",
+        "hits": 140,
+        "attempts": 150,
+        "n_persons": 25,
+        "n_targets": 50,
+        "n_seeds": 3
+      },
+      "tau": -0.006666666666666599,
+      "tau_reported_95_ci": [
+        -0.06666666666666665,
+        0.046666666666666634
+      ],
+      "tau_person_bootstrap_95_ci": [
+        -0.06666666666666665,
+        0.046666666666666634
+      ],
+      "tau_interval_method": "independent_two_block_person_bootstrap"
+    }
+  ],
+  "hypotheses": {
+    "H1": {
+      "estimand": "Spearman rho between positive k and the pooled control forcing floor",
+      "rho": 0.9944903161976938,
+      "bootstrap_95_ci": [
+        0.9749972783588643,
+        0.9944903161976939
+      ],
+      "p_raw_one_sided": 9.999000099990002e-05,
+      "valid_bootstrap_replicates": 10000,
+      "verdict": "supported",
+      "rule": "support requires the person-bootstrap 95% CI for rho to lie strictly above zero",
+      "family_adjusted_verdict": "supported"
+    },
+    "H2": {
+      "literal_one_percent": {
+        "tolerance": 0.01,
+        "point_estimate_floor_capacities": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "upper_ci_floor_capacities": [],
+        "joint_any_direction_capacities": [],
+        "joint_positive_signal_capacities": [],
+        "positive_signal_capacities_without_floor_requirement": [
+          6
+        ],
+        "zero_hit_wilson_upper": 0.10333504501592614,
+        "minimum_people_per_arm_for_zero_hit_wilson_upper_at_most_one_percent": 286,
+        "verdict": "unresolved_at_achieved_sample_size"
+      },
+      "joint_mapping": [
+        {
+          "tolerance": 0.01,
+          "below_preregistered_resolution": true,
+          "floor_only_capacities": [],
+          "joint_any_direction_capacities": [],
+          "joint_positive_signal_capacities": [],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": null
+        },
+        {
+          "tolerance": 0.05,
+          "below_preregistered_resolution": true,
+          "floor_only_capacities": [
+            4
+          ],
+          "joint_any_direction_capacities": [],
+          "joint_positive_signal_capacities": [],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": null
+        },
+        {
+          "tolerance": 0.09,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            4
+          ],
+          "joint_any_direction_capacities": [],
+          "joint_positive_signal_capacities": [],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": null
+        },
+        {
+          "tolerance": 0.1,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            4
+          ],
+          "joint_any_direction_capacities": [],
+          "joint_positive_signal_capacities": [],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": null
+        },
+        {
+          "tolerance": 0.15,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "joint_any_direction_capacities": [],
+          "joint_positive_signal_capacities": [],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": null
+        },
+        {
+          "tolerance": 0.2,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "joint_any_direction_capacities": [],
+          "joint_positive_signal_capacities": [],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": null
+        },
+        {
+          "tolerance": 0.3,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4,
+            6
+          ],
+          "joint_any_direction_capacities": [
+            6
+          ],
+          "joint_positive_signal_capacities": [
+            6
+          ],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": 6
+        },
+        {
+          "tolerance": 0.5,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            8
+          ],
+          "joint_any_direction_capacities": [
+            6
+          ],
+          "joint_positive_signal_capacities": [
+            6
+          ],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": 6
+        },
+        {
+          "tolerance": 0.75,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            8,
+            12
+          ],
+          "joint_any_direction_capacities": [
+            6
+          ],
+          "joint_positive_signal_capacities": [
+            6
+          ],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": 6
+        },
+        {
+          "tolerance": 0.9,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            8,
+            12,
+            16,
+            20,
+            24
+          ],
+          "joint_any_direction_capacities": [
+            6
+          ],
+          "joint_positive_signal_capacities": [
+            6
+          ],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": 6
+        },
+        {
+          "tolerance": 1.0,
+          "below_preregistered_resolution": false,
+          "floor_only_capacities": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            8,
+            12,
+            16,
+            20,
+            24,
+            32,
+            48,
+            64
+          ],
+          "joint_any_direction_capacities": [
+            6
+          ],
+          "joint_positive_signal_capacities": [
+            6
+          ],
+          "joint_negative_signal_capacities": [],
+          "largest_positive_joint_capacity": 6
+        }
+      ],
+      "global_test": "undefined_by_preregistration",
+      "p_raw": null,
+      "holm_reserved_p": 1.0,
+      "consistent_interval_sensitivity": {
+        "label": "post-hoc method-consistency sensitivity; does not replace the hybrid primary intervals",
+        "method": "all k use one Wilson convention; tau uses Newcombe/MOVER from the same intervals",
+        "conventions": [
+          {
+            "name": "target_only_icc_0.5",
+            "effective_n": 33.333333333333336,
+            "per_k": [
+              {
+                "k": 1,
+                "control_wilson_95_ci": [
+                  0.0,
+                  0.10333504501592614
+                ],
+                "trained_wilson_95_ci": [
+                  0.0,
+                  0.10333504501592614
+                ],
+                "tau_mover_95_ci": [
+                  -0.10333504501592614,
+                  0.10333504501592614
+                ]
+              },
+              {
+                "k": 2,
+                "control_wilson_95_ci": [
+                  0.0,
+                  0.10333504501592614
+                ],
+                "trained_wilson_95_ci": [
+                  0.0,
+                  0.10333504501592614
+                ],
+                "tau_mover_95_ci": [
+                  -0.10333504501592614,
+                  0.10333504501592614
+                ]
+              },
+              {
+                "k": 3,
+                "control_wilson_95_ci": [
+                  0.0,
+                  0.10333504501592614
+                ],
+                "trained_wilson_95_ci": [
+                  0.0,
+                  0.10333504501592614
+                ],
+                "tau_mover_95_ci": [
+                  -0.10333504501592614,
+                  0.10333504501592614
+                ]
+              },
+              {
+                "k": 4,
+                "control_wilson_95_ci": [
+                  0.00034670639947275567,
+                  0.11494387134957437
+                ],
+                "trained_wilson_95_ci": [
+                  0.002626136938991358,
+                  0.13657550627629775
+                ],
+                "tau_mover_95_ci": [
+                  -0.09632889430958376,
+                  0.13008002733943375
+                ]
+              },
+              {
+                "k": 6,
+                "control_wilson_95_ci": [
+                  0.08967376530224619,
+                  0.3484161962410675
+                ],
+                "trained_wilson_95_ci": [
+                  0.18749876192617437,
+                  0.4897018542795591
+                ],
+                "tau_mover_95_ci": [
+                  -0.07575872392527366,
+                  0.32879776043199727
+                ]
+              },
+              {
+                "k": 8,
+                "control_wilson_95_ci": [
+                  0.23038676185497653,
+                  0.5424581162157248
+                ],
+                "trained_wilson_95_ci": [
+                  0.315565192074023,
+                  0.636612676993493
+                ],
+                "tau_mover_95_ci": [
+                  -0.13128765332683404,
+                  0.31701121252946696
+                ]
+              },
+              {
+                "k": 12,
+                "control_wilson_95_ci": [
+                  0.5035998725727987,
+                  0.8072439784883468
+                ],
+                "trained_wilson_95_ci": [
+                  0.5305798911485016,
+                  0.828086090845128
+                ],
+                "tau_mover_95_ci": [
+                  -0.18928525893041043,
+                  0.2393060194914303
+                ]
+              },
+              {
+                "k": 16,
+                "control_wilson_95_ci": [
+                  0.5720328226716015,
+                  0.858366355720754
+                ],
+                "trained_wilson_95_ci": [
+                  0.5374044304980073,
+                  0.8332170842287431
+                ],
+                "tau_mover_95_ci": [
+                  -0.23987703030670282,
+                  0.1769711622077881
+                ]
+              },
+              {
+                "k": 20,
+                "control_wilson_95_ci": [
+                  0.6075702029805863,
+                  0.8826066390773741
+                ],
+                "trained_wilson_95_ci": [
+                  0.6515838037589325,
+                  0.9103262346977539
+                ],
+                "tau_mover_95_ci": [
+                  -0.15520134647530118,
+                  0.23205477942355413
+                ]
+              },
+              {
+                "k": 24,
+                "control_wilson_95_ci": [
+                  0.6515838037589325,
+                  0.9103262346977539
+                ],
+                "trained_wilson_95_ci": [
+                  0.6590825086579203,
+                  0.9147830625318868
+                ],
+                "tau_mover_95_ci": [
+                  -0.18122176281986802,
+                  0.1941413029790583
+                ]
+              },
+              {
+                "k": 32,
+                "control_wilson_95_ci": [
+                  0.7131200967822287,
+                  0.9444342035394255
+                ],
+                "trained_wilson_95_ci": [
+                  0.7537438437387107,
+                  0.9635881202485483
+                ],
+                "tau_mover_95_ci": [
+                  -0.13231283485531684,
+                  0.1995259870819887
+                ]
+              },
+              {
+                "k": 48,
+                "control_wilson_95_ci": [
+                  0.762123668348156,
+                  0.9671638283722239
+                ],
+                "trained_wilson_95_ci": [
+                  0.8147917517742453,
+                  0.9862289413448606
+                ],
+                "tau_mover_95_ci": [
+                  -0.10508928200357084,
+                  0.1898594406122545
+                ]
+              },
+              {
+                "k": 64,
+                "control_wilson_95_ci": [
+                  0.8056766135795742,
+                  0.9833885468064106
+                ],
+                "trained_wilson_95_ci": [
+                  0.7967133637967518,
+                  0.9803962638561121
+                ],
+                "tau_mover_95_ci": [
+                  -0.15001094478807803,
+                  0.13566285089326513
+                ]
+              }
+            ],
+            "mapping": [
+              {
+                "tolerance": 0.01,
+                "floor_only_capacities": [],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.05,
+                "floor_only_capacities": [],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.09,
+                "floor_only_capacities": [],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.1,
+                "floor_only_capacities": [],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.15,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.2,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.3,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.5,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.75,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  8
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.9,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  8,
+                  12,
+                  16,
+                  20
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 1.0,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  8,
+                  12,
+                  16,
+                  20,
+                  24,
+                  32,
+                  48,
+                  64
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              }
+            ]
+          },
+          {
+            "name": "all_repeated_attempts_icc_0.5",
+            "effective_n": 42.857142857142854,
+            "per_k": [
+              {
+                "k": 1,
+                "control_wilson_95_ci": [
+                  0.0,
+                  0.08226068196207405
+                ],
+                "trained_wilson_95_ci": [
+                  0.0,
+                  0.08226068196207405
+                ],
+                "tau_mover_95_ci": [
+                  -0.08226068196207405,
+                  0.08226068196207405
+                ]
+              },
+              {
+                "k": 2,
+                "control_wilson_95_ci": [
+                  0.0,
+                  0.08226068196207405
+                ],
+                "trained_wilson_95_ci": [
+                  0.0,
+                  0.08226068196207405
+                ],
+                "tau_mover_95_ci": [
+                  -0.08226068196207405,
+                  0.08226068196207405
+                ]
+              },
+              {
+                "k": 3,
+                "control_wilson_95_ci": [
+                  0.0,
+                  0.08226068196207405
+                ],
+                "trained_wilson_95_ci": [
+                  0.0,
+                  0.08226068196207405
+                ],
+                "tau_mover_95_ci": [
+                  -0.08226068196207405,
+                  0.08226068196207405
+                ]
+              },
+              {
+                "k": 4,
+                "control_wilson_95_ci": [
+                  0.00043362600113314165,
+                  0.09406358020144659
+                ],
+                "trained_wilson_95_ci": [
+                  0.0031700791960782015,
+                  0.11580017548751288
+                ],
+                "tau_mover_95_ci": [
+                  -0.07566928870485203,
+                  0.10933606464539788
+                ]
+              },
+              {
+                "k": 6,
+                "control_wilson_95_ci": [
+                  0.09775362139132507,
+                  0.3271297393049081
+                ],
+                "trained_wilson_95_ci": [
+                  0.20019945878343,
+                  0.4694143867229167
+                ],
+                "tau_mover_95_ci": [
+                  -0.051279896015917176,
+                  0.3072016414861426
+                ]
+              },
+              {
+                "k": 8,
+                "control_wilson_95_ci": [
+                  0.2446346765209491,
+                  0.522871362909443
+                ],
+                "trained_wilson_95_ci": [
+                  0.33230863576882996,
+                  0.6187452672691472
+                ],
+                "tau_mover_95_ci": [
+                  -0.1055470447675303,
+                  0.2941854134487587
+                ]
+              },
+              {
+                "k": 12,
+                "control_wilson_95_ci": [
+                  0.5238084137447105,
+                  0.7943412165084371
+                ],
+                "trained_wilson_95_ci": [
+                  0.5510887529208899,
+                  0.8160069742942804
+                ],
+                "tau_mover_95_ci": [
+                  -0.16521211615513298,
+                  0.21591602508803076
+                ]
+              },
+              {
+                "k": 16,
+                "control_wilson_95_ci": [
+                  0.5929125344688295,
+                  0.8476023381893749
+                ],
+                "trained_wilson_95_ci": [
+                  0.5579818679163084,
+                  0.8213503835393676
+                ],
+                "tau_mover_95_ci": [
+                  -0.21686924960929044,
+                  0.15317960839490466
+                ]
+              },
+              {
+                "k": 20,
+                "control_wilson_95_ci": [
+                  0.6286810745858108,
+                  0.873016419274922
+                ],
+                "trained_wilson_95_ci": [
+                  0.672870260695092,
+                  0.902246378608675
+                ],
+                "tau_mover_95_ci": [
+                  -0.1322399268398997,
+                  0.2097934203109625
+                ]
+              },
+              {
+                "k": 24,
+                "control_wilson_95_ci": [
+                  0.672870260695092,
+                  0.902246378608675
+                ],
+                "trained_wilson_95_ci": [
+                  0.680386692528651,
+                  0.9069664710156216
+                ],
+                "tau_mover_95_ci": [
+                  -0.15885494897076113,
+                  0.1718727254414186
+                ]
+              },
+              {
+                "k": 32,
+                "control_wilson_95_ci": [
+                  0.7344483529393181,
+                  0.9385604802884943
+                ],
+                "trained_wilson_95_ci": [
+                  0.7749754116268858,
+                  0.959216042803455
+                ],
+                "tau_mover_95_ci": [
+                  -0.11088826052471809,
+                  0.17820645786029377
+                ]
+              },
+              {
+                "k": 48,
+                "control_wilson_95_ci": [
+                  0.783324260613091,
+                  0.9631037180577553
+                ],
+                "trained_wilson_95_ci": [
+                  0.8357392903555299,
+                  0.9841078337583506
+                ],
+                "tau_mover_95_ci": [
+                  -0.08445892328392099,
+                  0.1688999229025081
+                ]
+              },
+              {
+                "k": 64,
+                "control_wilson_95_ci": [
+                  0.8266719169217168,
+                  0.9809386829516579
+                ],
+                "trained_wilson_95_ci": [
+                  0.8177551867351929,
+                  0.9776188888976762
+                ],
+                "tau_mover_95_ci": [
+                  -0.12928103667637475,
+                  0.11500693295889204
+                ]
+              }
+            ],
+            "mapping": [
+              {
+                "tolerance": 0.01,
+                "floor_only_capacities": [],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.05,
+                "floor_only_capacities": [],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.09,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.1,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.15,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.2,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.3,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.5,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.75,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  8
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 0.9,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  8,
+                  12,
+                  16,
+                  20
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              },
+              {
+                "tolerance": 1.0,
+                "floor_only_capacities": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  6,
+                  8,
+                  12,
+                  16,
+                  20,
+                  24,
+                  32,
+                  48,
+                  64
+                ],
+                "joint_any_direction_capacities": [],
+                "joint_positive_signal_capacities": [],
+                "joint_negative_signal_capacities": []
+              }
+            ]
+          }
+        ],
+        "primary_positive_joint_capacities_that_disappear": {
+          "target_only_icc_0.5": [
+            6
+          ],
+          "all_repeated_attempts_icc_0.5": [
+            6
+          ]
+        },
+        "k6_primary_positive_joint_disappears_in_both": true,
+        "all_conventions_have_no_positive_joint_point": true,
+        "conclusion": "The primary hybrid method yields k=6 as a positive joint point at tolerances of 30% or more. Under both uniform Wilson/MOVER conventions (target-only n_eff=100/3 and all repeated attempts n_eff=300/7), that point disappears and no positive joint capacity remains at any mapped tolerance."
+      },
+      "rule": "A useful positive audit point requires alpha's 95% upper bound at or below the tolerance and tau's 95% lower bound above zero. Any-direction CI exclusion is reported separately and a negative signal never counts as useful.",
+      "conclusion": "The literal 1% form is unresolved; the mapping is descriptive and does not establish that no operating point exists outside the achieved precision or grid.",
+      "family_adjusted_verdict": "unresolved_global_test_undefined"
+    },
+    "H3": {
+      "k": 20,
+      "tau": 0.040000000000000036,
+      "bootstrap_95_ci": [
+        -0.053333333333333344,
+        0.1333333333333333
+      ],
+      "p_raw_two_sided": 0.42755724427557246,
+      "verdict": "does_not_reject_zero",
+      "rule": "the registered null is rejected only when tau's 95% interval excludes zero",
+      "family_adjusted_verdict": "does_not_reject_zero_after_conditional_holm"
+    },
+    "H5": {
+      "status": "exploratory_underpowered",
+      "observed_maximizers": [
+        6.0
+      ],
+      "argmax_envelope_95_ci": [
+        6.0,
+        32.0
+      ],
+      "first_argmax_sensitivity_95_ci": [
+        6.0,
+        32.0
+      ],
+      "tied_maximum_replicates": 593,
+      "interior_peak_localized": true,
+      "quadratic_log_k_squared_coefficient": -0.011899502612416044,
+      "quadratic_bootstrap_95_ci": [
+        -0.02385614323364956,
+        -0.0001139987256983889
+      ],
+      "quadratic_one_sided_p": 0.025597440255974404,
+      "quadratic_p_method": "null-centered bootstrap left tail; exploratory and unadjusted",
+      "verdict": "exploratory_interior_peak_localized",
+      "caveat": "No flatness/equivalence threshold was preregistered; failure to detect negative curvature is not evidence that the curve is flat."
+    },
+    "H4": {
+      "model": "control-only interval/right-censored Weibull log-log AFT",
+      "gamma": 2.4693904739956847,
+      "gamma_bootstrap_95_ci": [
+        1.1229098933861914,
+        3.6081978692513252
+      ],
+      "p_raw_two_sided": 0.025397460253974602,
+      "verdict": "proportionality_refuted",
+      "rule": "proportionality is refuted when gamma's bootstrap 95% CI excludes 1",
+      "n_targets": 50,
+      "n_people": 25,
+      "n_seeds": 3,
+      "bootstrap_replicates": 10000,
+      "right_censored_targets": 0,
+      "right_censored_fraction": 0.0,
+      "nonmonotone_targets": 7,
+      "intercept_log_scale": -8.294176070348023,
+      "intercept_bootstrap_95_ci": [
+        -13.077007093726955,
+        -2.5482885823801746
+      ],
+      "beta_scale_exp_minus_intercept": 4000.505752954542,
+      "beta_warning": "This scale is not a constant bits/token forcing rate when gamma differs from 1; do not quote it as beta if proportionality is refuted.",
+      "negative_log_likelihood": 79.18018477789917,
+      "lognormal_distribution_sensitivity": {
+        "model": "control-only interval/right-censored log-normal log-log AFT",
+        "gamma": 2.006464571189715,
+        "gamma_bootstrap_95_ci": [
+          1.092753735602706,
+          3.001413271983897
+        ],
+        "p_raw_two_sided": 0.040695930406959305,
+        "intercept_log_scale": -6.500297468650329,
+        "intercept_bootstrap_95_ci": [
+          -10.711748231312319,
+          -2.618931116667334
+        ],
+        "negative_log_likelihood": 72.37646286440025,
+        "bootstrap_replicates": 10000,
+        "bootstrap_failures": [],
+        "solver_retries": [
+          {
+            "replicate": 3039,
+            "primary_error": "RuntimeError: Tobit optimization failed: ABNORMAL: ",
+            "resolution": "same likelihood converged from weighted default start"
+          },
+          {
+            "replicate": 9182,
+            "primary_error": "RuntimeError: Tobit optimization failed: ABNORMAL: ",
+            "resolution": "same likelihood converged from weighted default start"
+          }
+        ],
+        "label": "distribution sensitivity required by method_choices.md",
+        "gamma_ci_excludes_one": true
+      },
+      "bootstrap_failures": [],
+      "solver": {
+        "path": "analysis_support/censored_models.py",
+        "sha256": "ed231efdd9a03d4fb630fd93316fb09477a8b08b2d06d3ff978ada91831ec8ba",
+        "validation_path": "analysis_support/solver_validation.json",
+        "validation_checks": [
+          {
+            "kind": "full",
+            "max_parameter_difference": 1.2991568398845743e-06,
+            "log_likelihood_difference": -3.6637004541262286e-10
+          },
+          {
+            "kind": "bootstrap_0",
+            "max_parameter_difference": 1.15417290791342e-05,
+            "log_likelihood_difference": -1.139454752774327e-09
+          },
+          {
+            "kind": "bootstrap_1",
+            "max_parameter_difference": 2.4336718977835403e-06,
+            "log_likelihood_difference": -2.8705926524708048e-11
+          },
+          {
+            "kind": "bootstrap_2",
+            "max_parameter_difference": 1.289795009906669e-06,
+            "log_likelihood_difference": -1.0658141036401503e-12
+          }
+        ]
+      },
+      "family_adjusted_verdict": "nominal_ci_excludes_one_but_not_significant_after_conditional_holm"
+    }
+  },
+  "holm": {
+    "family": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "fwer": 0.05,
+    "status": "conditional_bookkeeping_only",
+    "note": "H2 has no preregistered global p-value and is conservatively reserved at p=1. This table does not repair that missing test contract. H5 is exploratory and excluded.",
+    "results": {
+      "H1": {
+        "p_raw_or_reserved": 9.999000099990002e-05,
+        "p_holm": 0.00039996000399960006,
+        "reject_at_0_05": true,
+        "h2_reserved_not_tested": false
+      },
+      "H4": {
+        "p_raw_or_reserved": 0.025397460253974602,
+        "p_holm": 0.0761923807619238,
+        "reject_at_0_05": false,
+        "h2_reserved_not_tested": false
+      },
+      "H3": {
+        "p_raw_or_reserved": 0.42755724427557246,
+        "p_holm": 0.8551144885511449,
+        "reject_at_0_05": false,
+        "h2_reserved_not_tested": false
+      },
+      "H2": {
+        "p_raw_or_reserved": 1.0,
+        "p_holm": 1.0,
+        "reject_at_0_05": false,
+        "h2_reserved_not_tested": true
+      }
+    }
+  },
+  "scope_exclusions": [
+    "NLL/AUC/ROC",
+    "empirical epsilon",
+    "H5 as confirmatory",
+    "legacy level-normal Tobit, complete-case linear, and direct median H/k diagnostics; these are not H1-H5 decision rules and remain in the prior audited reanalysis"
+  ]
+}

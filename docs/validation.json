@@ -1,0 +1,15 @@
+{
+  "raw_attempt_files": 45,
+  "raw_attempt_rows": 4500,
+  "raw_parquet_bytes_unchanged": true,
+  "control_curve_matches_original": true,
+  "dc_curve_matches_original": true,
+  "four_cell_rates_match_original": true,
+  "h1_h5_verdicts_unchanged": true,
+  "numeric_comparison_rtol": 1e-10,
+  "numeric_comparison_atol": 1e-12,
+  "unit_tests_passed": 27,
+  "payload_restore_verified": true,
+  "gpu_rerun_performed_for_packaging": false,
+  "anonymity_review": "No project identity or credential matches in released metadata/source/attempts; background-corpus keyword matches were generic public encyclopedia content and were preserved."
+}

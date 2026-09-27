@@ -1,0 +1,6 @@
+# CPU-only analysis environment used for this release (Python 3.13).
+numpy==2.4.2
+pandas==3.0.0
+scipy==1.17.0
+pyarrow==24.0.0
+matplotlib==3.10.6

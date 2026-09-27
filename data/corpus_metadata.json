@@ -1,0 +1,18 @@
+{
+  "n_documents": 101360,
+  "n_pii_documents": 1360,
+  "pii_fraction": 0.013417521704814523,
+  "perturb_formats": true,
+  "perturb_prob": 0.5,
+  "public_passages": {
+    "requested": 100000,
+    "n_real": 133251,
+    "source_counts": {
+      "wikipedia": 99921,
+      "arxiv": 33330
+    },
+    "n_filler": 0,
+    "filler_fraction": 0.0,
+    "used_filler_fallback": false
+  }
+}

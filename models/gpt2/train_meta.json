@@ -1,0 +1,17 @@
+{
+  "model_name": "gpt2",
+  "epochs": 3,
+  "final_loss": 0.6934097461302448,
+  "pii_eval_losses": [
+    2.6760688739594336,
+    2.2046645108496374,
+    2.0888931497307883
+  ],
+  "gradient_checkpointing": false,
+  "device_profile": "auto",
+  "use_lora": false,
+  "lora_target_modules": null,
+  "load_in_4bit": false,
+  "saved_as_adapter": false,
+  "base_model": null
+}

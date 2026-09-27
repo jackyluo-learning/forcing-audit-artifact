@@ -1,0 +1,152 @@
+{
+  "schema": "run-manifest-v1",
+  "study_id": "capacity_axis_20260902",
+  "run_id": "e3b",
+  "exp_id": "E3",
+  "shard": {
+    "model_name": "gpt2",
+    "model_state": "finetuned",
+    "seed": 42,
+    "capacity_k": 6,
+    "fields": [
+      "ssn",
+      "email"
+    ]
+  },
+  "gcg_iters": 200,
+  "target_subset_hash": "a01097acbb835207",
+  "n_targets": 100,
+  "arm_sizes": {
+    "D": 25,
+    "C": 25
+  },
+  "tier_composition": {
+    "1": 3,
+    "5": 7,
+    "20": 15
+  },
+  "code": {
+    "commit": "a6fd908641489fd43cf7159f5e161b913efcc9e2",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "env": {
+    "python": "3.11.5",
+    "pip_freeze_sha256_16": "b7516b82b8f38c90",
+    "faker": null,
+    "torch": "2.6.0+cu124",
+    "transformers": "5.16.1",
+    "lifelines": "0.30.0"
+  },
+  "accelerator": {
+    "device": "cuda",
+    "name": "NVIDIA A100 80GB PCIe",
+    "total_mem_gb": 79.1,
+    "count": 1
+  },
+  "config": {
+    "PII_ADAPTIVE_LAMBDA": "0.1",
+    "PII_CAP_K": "6",
+    "PII_CAP_SWEEP_N": "25",
+    "PII_DEVICE_PROFILE": "a100_80",
+    "PII_E3_TARGET_MANIFEST": "results/target_sets/e3b.json",
+    "PII_FIELDS": "ssn,email",
+    "PII_GCG_ITERS": "200",
+    "PII_KGRID": "0,1,2,3,4,6,8,12,16,20,24,32,48,64",
+    "PII_MODELS": "gpt2",
+    "PII_MODULES": "Python/3.11.5-GCCcore-13.2.0",
+    "PII_RUN_ID": "e3b",
+    "PII_SEEDS": "42,1337,2024"
+  },
+  "frozen_targets": {
+    "path": "results/target_sets/e3b.json",
+    "manifest_sha256": "76c5f511019978ebad23751bc1a4f2b939807a38280b8a766065715a3205e182",
+    "payload_sha256": "83a63df1cc50818d71ef585042cd6cdce3ce1571fc6ff673ad4289d427b50672",
+    "target_values_sha256": "d0b81c7226c797e478269836598b8587484675cf02ee8d2e436787a0b5348cee",
+    "pair_assignment_sha256": "48fab4bf6013dbce7c8043f89e5e7b874189c0794362720bda7d735f1778935e"
+  },
+  "input_fingerprints": {
+    "registry": {
+      "sha256": "91901119f342d7d4ff9e052ceb7fce53bebacfe3fb593a7c1d7ff83a2e2978c6",
+      "bytes": 65170
+    },
+    "corpus": {
+      "sha256": "7a059fc04ae21665a464a5cb68eb87d2fae597d736f82869c24866e21d0e1acf",
+      "bytes": 57979000
+    },
+    "checkpoint": {
+      "files": {
+        "config.json": {
+          "sha256": "b0457be0f27b82ba744a0ef9a3d0ad03fbe7db9664537572c96edb5ec2f42555",
+          "bytes": 961
+        },
+        "generation_config.json": {
+          "sha256": "2e352d17c39026d25fd7994c102f94879e9047b348bfdd503a180c41f90f2b8c",
+          "bytes": 119
+        },
+        "model.safetensors": {
+          "sha256": "1cefaa4922d3e2474cf27a0e75a58b72447d1ef2742528972112b4dc89963b7a",
+          "bytes": 497774208
+        },
+        "tokenizer.json": {
+          "sha256": "9fe733f259ca91b0cfce8719f4c9c2d60a5fa57091ccb4855ddcaeb1981707a7",
+          "bytes": 3557778
+        },
+        "tokenizer_config.json": {
+          "sha256": "2ec6e8751bff5617ea5f342d96c69b50fba71826c0b2b9449c34fb55253432f4",
+          "bytes": 326
+        },
+        "train_meta.json": {
+          "sha256": "35188b0ae6dfebe0bf002702fa892e1a4d1203fb195d0c23280ffe06e45ee3d6",
+          "bytes": 367
+        }
+      },
+      "sha256": "53f223a44462e11d674c57d6ac65c9dd8c31e06c30955deb5870a74b14c310a0",
+      "bytes": 501333759
+    }
+  },
+  "resolved_sweep_config": {
+    "target_set_id": "e3b",
+    "target_manifest_sha256": "76c5f511019978ebad23751bc1a4f2b939807a38280b8a766065715a3205e182",
+    "model_name": "gpt2",
+    "model_state": "finetuned",
+    "fields": [
+      "ssn",
+      "email"
+    ],
+    "k_grid": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12,
+      16,
+      20,
+      24,
+      32,
+      48,
+      64
+    ],
+    "seeds": [
+      42,
+      1337,
+      2024
+    ],
+    "gcg_iters": 200,
+    "candidates_per_position_B": 256,
+    "candidate_evaluations_per_step": 512,
+    "candidate_minibatch": 64,
+    "early_stop_on_exact_match": true,
+    "extraction_check_interval": 10,
+    "decision_rule": "field-normalized substring exact_match"
+  },
+  "resolved_sweep_config_sha256": "48a3250bb9b9686407835812c37779d6347ca4ecb9a73ffd9488d08ae38d0f49",
+  "scheduler": {
+    "slurm_job_id": "64fc30e82cb9",
+    "slurm_array_job_id": "bfdb764dfcb3",
+    "slurm_array_task_id": "3cc4fa51cfdf"
+  }
+}

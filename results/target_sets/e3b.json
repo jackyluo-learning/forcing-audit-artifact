@@ -1,0 +1,1586 @@
+{
+  "schema": "e3-frozen-targets-v1",
+  "study_id": "capacity_axis_20260902",
+  "target_set_id": "e3b",
+  "created_at": "2026-09-20T21:23:41.366577+00:00",
+  "created_before_e3b_outcomes": true,
+  "fields": [
+    "ssn",
+    "email"
+  ],
+  "selection": {
+    "outcome_columns_read": [],
+    "exposure_unit": "(person_id, field)",
+    "eligibility": "all selected field values occur in fine-tuning text",
+    "method": "even_subset within each eligible frequency tier",
+    "tier_quotas": {
+      "1": 3,
+      "5": 7,
+      "20": 15
+    },
+    "eligible_counts": {
+      "1": 3,
+      "5": 29,
+      "20": 60
+    },
+    "selected_tiers": {
+      "1": 3,
+      "5": 7,
+      "20": 15
+    }
+  },
+  "matching": {
+    "unit": "person",
+    "method": "Hungarian minimum-cost assignment without replacement",
+    "fields_jointly_matched": [
+      "ssn",
+      "email"
+    ],
+    "features_per_field": [
+      "char_len",
+      "tok_len",
+      "H_bits"
+    ],
+    "standardization": "population SD over selected D plus all corpus-absent C",
+    "n_control_candidates": 50,
+    "with_replacement": false,
+    "balance": {
+      "ssn": {
+        "feature_names": [
+          "char_len",
+          "tok_len",
+          "H_bits"
+        ],
+        "marginal_smd": [
+          0.0,
+          0.0,
+          0.09569617793804096
+        ],
+        "paired_standardized_mean_difference": [
+          0.0,
+          0.0,
+          0.2181063814496911
+        ],
+        "max_abs_marginal_smd": 0.09569617793804096
+      },
+      "email": {
+        "feature_names": [
+          "char_len",
+          "tok_len",
+          "H_bits"
+        ],
+        "marginal_smd": [
+          0.0971856073458038,
+          0.033488734331157635,
+          0.023319761539956917
+        ],
+        "paired_standardized_mean_difference": [
+          0.17371475840814896,
+          0.054433105395181744,
+          0.05921137606323915
+        ],
+        "max_abs_marginal_smd": 0.0971856073458038
+      }
+    },
+    "balance_gate": {
+      "metric": "absolute marginal standardized mean difference",
+      "threshold": 0.1,
+      "n_required": 6,
+      "passed": true
+    }
+  },
+  "reference_model": {
+    "name": "gpt2",
+    "model_class": "GPT2LMHeadModel",
+    "tokenizer_class": "GPT2Tokenizer",
+    "model_commit": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "tokenizer_commit": null,
+    "vocab_size": 50257,
+    "device_used_for_freeze": "cuda",
+    "transformers_version": "5.16.1"
+  },
+  "execution_contract": {
+    "model_name": "gpt2",
+    "model_state": "finetuned",
+    "k_grid": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      12,
+      16,
+      20,
+      24,
+      32,
+      48,
+      64
+    ],
+    "seeds": [
+      42,
+      1337,
+      2024
+    ],
+    "gcg_iters": 200,
+    "fields": [
+      "ssn",
+      "email"
+    ],
+    "n_people_per_arm": 25,
+    "n_targets_per_arm": 50
+  },
+  "source": {
+    "registry": {
+      "sha256": "91901119f342d7d4ff9e052ceb7fce53bebacfe3fb593a7c1d7ff83a2e2978c6",
+      "bytes": 65170
+    },
+    "corpus": {
+      "sha256": "7a059fc04ae21665a464a5cb68eb87d2fae597d736f82869c24866e21d0e1acf",
+      "bytes": 57979000
+    },
+    "checkpoint": {
+      "files": {
+        "config.json": {
+          "sha256": "b0457be0f27b82ba744a0ef9a3d0ad03fbe7db9664537572c96edb5ec2f42555",
+          "bytes": 961
+        },
+        "generation_config.json": {
+          "sha256": "2e352d17c39026d25fd7994c102f94879e9047b348bfdd503a180c41f90f2b8c",
+          "bytes": 119
+        },
+        "model.safetensors": {
+          "sha256": "1cefaa4922d3e2474cf27a0e75a58b72447d1ef2742528972112b4dc89963b7a",
+          "bytes": 497774208
+        },
+        "tokenizer.json": {
+          "sha256": "9fe733f259ca91b0cfce8719f4c9c2d60a5fa57091ccb4855ddcaeb1981707a7",
+          "bytes": 3557778
+        },
+        "tokenizer_config.json": {
+          "sha256": "2ec6e8751bff5617ea5f342d96c69b50fba71826c0b2b9449c34fb55253432f4",
+          "bytes": 326
+        },
+        "train_meta.json": {
+          "sha256": "35188b0ae6dfebe0bf002702fa892e1a4d1203fb195d0c23280ffe06e45ee3d6",
+          "bytes": 367
+        }
+      },
+      "sha256": "53f223a44462e11d674c57d6ac65c9dd8c31e06c30955deb5870a74b14c310a0",
+      "bytes": 501333759
+    }
+  },
+  "code": {
+    "commit": "76b59e9209dcf2348a8c60e09c7ef7ec698ce07c",
+    "dirty": false,
+    "dirty_files": []
+  },
+  "pairs": [
+    {
+      "pair_index": 0,
+      "trained": {
+        "person_id": "Robert Chase",
+        "frequency": 1,
+        "targets": {
+          "ssn": {
+            "value_sha256": "113514186a07e296f9b27cc831b00e5c5185d680b1e459d30c96b85c6683d6db",
+            "formatted_target_sha256": "a6899cf9132a9b922673d2daeca3cf27f878d5b9754c8a394ebf3ff5c145a2c5",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 71.2191162109375
+            }
+          },
+          "email": {
+            "value_sha256": "5e9326def6477cdb7443e1b05d0546c1f4aae8e9612371993a154f9b3cab1aa2",
+            "formatted_target_sha256": "0b9a0e51fef1c62b6c98351d5ff927d7be7445da67a0dc951d2bdc305dde05e7",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 28.0,
+              "tok_len": 10.0,
+              "H_bits": 78.97562408447266
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Bailey Gonzalez",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "665a24f37cbc5bf1d931fcea8970026f3d97d9be43020594ac171d005f11b091",
+            "formatted_target_sha256": "7bbe8654ae08b4f5a5cc0dc8ca3534c6a8cedbecc8cf8262f8a0ae23e7ecc9f3",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 71.05735778808594
+            }
+          },
+          "email": {
+            "value_sha256": "6403179f0e0583145f3cfa61383f579e6739fc008db16172cedc3099c32f6a0f",
+            "formatted_target_sha256": "7848e52af7b8957bed02746095b6d94f62edeef9fc3b316fd98c9d2aace88663",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 28.0,
+              "tok_len": 9.0,
+              "H_bits": 73.2488784790039
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.1975513314061554
+    },
+    {
+      "pair_index": 1,
+      "trained": {
+        "person_id": "Grant Watts",
+        "frequency": 1,
+        "targets": {
+          "ssn": {
+            "value_sha256": "d9e1cabb5110727f1abb757a5b5bb35eca6c981f9e3baa8b663b1004598876ba",
+            "formatted_target_sha256": "651a6dc5c22a42c64c2e37800cb120f536646722e254cc7d33d4b7593d815831",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 71.04080200195312
+            }
+          },
+          "email": {
+            "value_sha256": "1863bf31bf53b1c6d76bf6e6f38aa3310614d815c8828b2fcca4819ef2b65679",
+            "formatted_target_sha256": "1cfa953e08c93dc01afd836ba6b23e761264eb9948898cb0b8fa0f6ab421aa28",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 24.0,
+              "tok_len": 8.0,
+              "H_bits": 62.02494430541992
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Alexander Bradley",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "29fed3d31b72ee35a8ee95a279b4b1577737a017f563f1b8430eae19e660363c",
+            "formatted_target_sha256": "acfd7fcb00c9ee7b03059679ad1d92e60ed68b4983e421dc4662dc82475b2907",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 72.73737335205078
+            }
+          },
+          "email": {
+            "value_sha256": "cb2c7f8242662de5627f19d00ce063b92ce6c278b7d2c0a12703b781d42e609e",
+            "formatted_target_sha256": "5a90f266b4ad57aa23dd5b8217e24d4d5d4407451b63c5d519dda76624689190",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 25.0,
+              "tok_len": 9.0,
+              "H_bits": 63.594627380371094
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.3501322666490705
+    },
+    {
+      "pair_index": 2,
+      "trained": {
+        "person_id": "Paul Carrillo",
+        "frequency": 1,
+        "targets": {
+          "ssn": {
+            "value_sha256": "e04c3ae3176537486a3b4055071ecade58002f61223213b83e9cd515aa179082",
+            "formatted_target_sha256": "e663014be63ddf0b0255c8c4b00f0503367479eca7192beb053359ebcb44ac4a",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 69.02629852294922
+            }
+          },
+          "email": {
+            "value_sha256": "7f6f5aad1f0c54da07e1d0be3157b9e4fcad6443df9371587f6303b97b2f4130",
+            "formatted_target_sha256": "e7cc4d90916554004e4552c455385a6a18a8e7a5116af34bb712a5b455af3ee8",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 33.0,
+              "tok_len": 11.0,
+              "H_bits": 83.05936431884766
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Jeffrey Day",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "b675e6b57b2a724fd4a1c13609834728959f74a7bd867ebf345497cda7aac25e",
+            "formatted_target_sha256": "16bac3f21bbd3495f0bcc28cc25e3d0ceed7dd10faff386482b32ce7e03457f0",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 66.78348541259766
+            }
+          },
+          "email": {
+            "value_sha256": "2531a333038755f0ccd70dd410f8203e736c1c653e44f02ae8c3df6973ab1f5c",
+            "formatted_target_sha256": "a3d60145bc7236d0576e27a00d12ba2e76e4f3a2cd130bef154d7bc40f31014f",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 31.0,
+              "tok_len": 9.0,
+              "H_bits": 77.1939697265625
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 4.716859192372549
+    },
+    {
+      "pair_index": 3,
+      "trained": {
+        "person_id": "Taylor Silva",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "e5a191d7e7763e2ca8033205746a33fffc7de0a919ecf5d8bfe2762329d3e9d5",
+            "formatted_target_sha256": "8356b7c992a1e6dc2fa3e9bbfe2b440e6eee1157973c89763b9ea677c4194ca6",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 74.18885040283203
+            }
+          },
+          "email": {
+            "value_sha256": "3466a56026698b28aef4e0145262dea24148d77f44e07b281cde77e7d8f16803",
+            "formatted_target_sha256": "440b43b583d7db63eeaa8dd91ad96f9f19efbaa4980fb1e1954c4f3426cfbb20",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 25.0,
+              "tok_len": 8.0,
+              "H_bits": 57.942813873291016
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Stephanie Washington",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "323bac7c44689518420d9d2ef456476999bad47b8b7eb448a2a2beb3659f013d",
+            "formatted_target_sha256": "1d57992054432183c4be47a59cae8e97dddffe861d839d9b8dd7afb470c2dbb1",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 75.2242660522461
+            }
+          },
+          "email": {
+            "value_sha256": "00aab4feb757f9d58401f41ba9898980cf28c412aaa433a2aa230bfe16fe6e2e",
+            "formatted_target_sha256": "555a783133dd8c4d6d48e0a06a5b07235073ac182344ccb67725be360972fdde",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 25.0,
+              "tok_len": 9.0,
+              "H_bits": 57.30247116088867
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.9436221535804549
+    },
+    {
+      "pair_index": 4,
+      "trained": {
+        "person_id": "Sydney White",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "9a2a9e4441d786da021fe6593559977a015ad2b7644619f6be2a2e9b26ea2d31",
+            "formatted_target_sha256": "e94bb44d70cf12027dd0691eb0c1f219e7ccabcdc48b82f2e0b66ab313b09f51",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 74.18252563476562
+            }
+          },
+          "email": {
+            "value_sha256": "e1eb5ae35a092955b36f8e5f7dfcd86286686ed92b341cf3d40ef8cbfa8286ba",
+            "formatted_target_sha256": "bc5fdb1177cbd19b52ec0fac703d132681184b2647f519c71386a8a316f69a77",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 32.0,
+              "tok_len": 10.0,
+              "H_bits": 73.51596069335938
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Melissa Price",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "332a47ef9c580b8562c0ac53556e7bff4583d716a6df173ab0dc3175bfe5d532",
+            "formatted_target_sha256": "09de29ed9061f99c209ea9295535e89a52a40bc148eaa5bffd00cd8e238243c2",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 72.69569396972656
+            }
+          },
+          "email": {
+            "value_sha256": "c02edb46c796659638727f4419e80ce7e08738fff3af4c8084fb481e5c5281d2",
+            "formatted_target_sha256": "edfa453d4ade386f1de21b76144905383cd66fc47aec4e948c8c1dfc7e50e872",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 30.0,
+              "tok_len": 10.0,
+              "H_bits": 76.30587005615234
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.8484525383026789
+    },
+    {
+      "pair_index": 5,
+      "trained": {
+        "person_id": "Karen Drake",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "88ba45c45f4f33f557e018016ad6446e4302bc2981d8f02dba67104c953f7cbf",
+            "formatted_target_sha256": "ea4cd51f507986b740739af23eb889439f9bc55a9233e930ad23cbfc9a2a6288",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 73.79908752441406
+            }
+          },
+          "email": {
+            "value_sha256": "41cb8bc439161ca96710c164fa13b43bb662e82af0da64decbd372469bf237cf",
+            "formatted_target_sha256": "cfe0d4a977fd8e490f83351191a07f7f4c2104c36f66ee185c2c929788b4a7f9",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 10.0,
+              "H_bits": 61.76716995239258
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Shannon Cook",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "96a8a8a7c0d87b6fe4e0420dbf5bfb1c37695f0f707872bc40c3a9e33d86c647",
+            "formatted_target_sha256": "e06b893efc2d91ca7e511449f197250462f388587b568b04a530b506991586a4",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 74.75770568847656
+            }
+          },
+          "email": {
+            "value_sha256": "bf8488bc6730b81cfbe525885f2783bb16f822a26db6f459a742d9d667a13740",
+            "formatted_target_sha256": "06a320449f2f79458ce7f6c27f8dce920e1851cea32b1a818df28347a9333f3e",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 10.0,
+              "H_bits": 65.24618530273438
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.29657453017705643
+    },
+    {
+      "pair_index": 6,
+      "trained": {
+        "person_id": "Emily Hayes",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "620b51c6f71a07141096b99c71372c696300896b92b204555059bc5e726323a5",
+            "formatted_target_sha256": "078ecbf170530cbe9a5b0e2c9379a94a7352bf7b697cd5c99e249da3347ff442",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 79.53348541259766
+            }
+          },
+          "email": {
+            "value_sha256": "1b88125c91eafbe5c807a535845e04ae68626a743e9f3b7c93b8879c7a42cd7f",
+            "formatted_target_sha256": "ead64544014ace6c05ab8207b9e24e57e235090d66b09cea77dc8aa1782628fc",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 32.0,
+              "tok_len": 11.0,
+              "H_bits": 88.79307556152344
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Brian Moore",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "9b823e7be9c896a3374b8c0ce17362a783538921fb854757d97f686d9bcbc86c",
+            "formatted_target_sha256": "c5dd47104c8e5824439cfc3b112a64675ab747574cc176c511ff3e07826c48f7",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 77.97544860839844
+            }
+          },
+          "email": {
+            "value_sha256": "d3ebf0bc8b6e7519d0aaf126da7975a25004afbce7fbf7e3cf5956261c841927",
+            "formatted_target_sha256": "cce8a9ecf3f0f115b10ef1ab220ac4b6a8199b58dd16675f9c87f9ca6d9df562",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 33.0,
+              "tok_len": 11.0,
+              "H_bits": 81.8055419921875
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.1014572649088548
+    },
+    {
+      "pair_index": 7,
+      "trained": {
+        "person_id": "Tyler Morgan",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "7e67697469e21de913cd57852e0bce082fd8bd4f5c5e6056cc547e019ba0bbeb",
+            "formatted_target_sha256": "993e4030590ee9b8ea93a1b05344c66aee0adffb45d35a2ac92d57cdd19f2f76",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 77.22811889648438
+            }
+          },
+          "email": {
+            "value_sha256": "ea0aa3dbffa6115271a2d883edd33ea5a83fafed1208eed5b461d9825d0812c1",
+            "formatted_target_sha256": "41e76eede6886802f5b7154555e919a453e99066e6478e0f77f829500d05b7e3",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 9.0,
+              "H_bits": 67.63240814208984
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Rebecca Hansen",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "5df13f1d11fd92978f97cf593f63308c0ce7bb1c1ce896bc4511d866b06b2971",
+            "formatted_target_sha256": "0ee7c92500a961b23032da801f71141d8d6a332736a22a62fe6945337d656d3c",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 74.58906555175781
+            }
+          },
+          "email": {
+            "value_sha256": "c5f5a5672513d4adb8689b7a9db07e6e80ec0fcac5c81d684bc2bd6ecca6c291",
+            "formatted_target_sha256": "304f8ffcef7fefa44553726c41b972f1c424db112227f5f406d9573c4b36e122",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 29.0,
+              "tok_len": 9.0,
+              "H_bits": 71.42716217041016
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.665182632258053
+    },
+    {
+      "pair_index": 8,
+      "trained": {
+        "person_id": "Johnny Khan",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "97f5db89ff53e7ebed6ad98ebfaa589cc3f0faf3fdca8614be0bde48511a801d",
+            "formatted_target_sha256": "01c4f54545e87c543d4b31d1f92c992bb99f8ea2f05b1b316e7c5fa3c2d4f64e",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 75.497802734375
+            }
+          },
+          "email": {
+            "value_sha256": "466d5c012b022b066623155cecba94db6e7133128b1cd7a6c777a9e94df62cdb",
+            "formatted_target_sha256": "a5ed9a4a2759063678e30c093090bc2d59a07f1bbcd8d79232f1b8c7cdbcab7b",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 9.0,
+              "H_bits": 66.79393005371094
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Kimberly Davis",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "ffb2c522e07b03a8293f7c211be672b9b7180c389da6f06000ba55e84a1cc292",
+            "formatted_target_sha256": "bbdf0a57fba1f2404f545fb1554c39b3dc915fc96525d77ed245253941a79cc6",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 74.87416076660156
+            }
+          },
+          "email": {
+            "value_sha256": "7092ccc34f98457385933a218e2a384d58ea6ec73651b4d87f4bbb2d773a23dc",
+            "formatted_target_sha256": "2431c26d22e5cd05ebe25805e7bd6bbf1ed9ddb87ca891893bbb08d2cd37e04b",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 26.0,
+              "tok_len": 9.0,
+              "H_bits": 64.19644165039062
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.24842020662005165
+    },
+    {
+      "pair_index": 9,
+      "trained": {
+        "person_id": "Linda Cobb",
+        "frequency": 5,
+        "targets": {
+          "ssn": {
+            "value_sha256": "7f743a549abd3d1fbbd015ec58fc6124d811f3a9edc1a626c235789cc4aa6995",
+            "formatted_target_sha256": "6886122039cbfd63c83d05993019bbca8f56adf2e3a65d5f9ed37e4bd715947f",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 72.15543365478516
+            }
+          },
+          "email": {
+            "value_sha256": "1b5904ff6893991e114b63eb2784c8bc9f5b732ee5e238c0aa1a4f1d477e46c6",
+            "formatted_target_sha256": "a356576ea64d48f937663ec3d9b6e8f885c6077c807c9d577e42aedd964bc667",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 30.0,
+              "tok_len": 9.0,
+              "H_bits": 64.49656677246094
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Sharon Blankenship",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "5d8872a982dd8ef90ef2b38b497adfffe63088217b1ff2b06a0ce06929aa8a51",
+            "formatted_target_sha256": "d54a9b61d5b6685c4fbeef2c2a8d190df6165b0624ebd59791205a746a0e3b70",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 71.64109802246094
+            }
+          },
+          "email": {
+            "value_sha256": "1a474610b01a950a2aae18cbbe3721075d0fd672651dfba5208dc50143044691",
+            "formatted_target_sha256": "d30a031f587d497ccc3e962c48718cb67a1b56067c486098dc312e4245175b1e",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 29.0,
+              "tok_len": 9.0,
+              "H_bits": 69.5932846069336
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.4756632229370627
+    },
+    {
+      "pair_index": 10,
+      "trained": {
+        "person_id": "Kimberly Valdez",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "a21d3ae4d34fae29b90998d3240a1d61a7383696d588fb935164351ead27360a",
+            "formatted_target_sha256": "53f5a705f8594dac81a934b836f1472946d43f0f27a6e6434cd32922243262bb",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 73.9500732421875
+            }
+          },
+          "email": {
+            "value_sha256": "c82f204b0f32c6676229c19875318b3ccfc6364fe0315d8daa8e2e6280516a2f",
+            "formatted_target_sha256": "eb7fe6114c2a90b93a579e9cc3e962a6121b77e857a32cfdb47b7ec1bb6d60cc",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 24.0,
+              "tok_len": 8.0,
+              "H_bits": 70.64476013183594
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Brandi Martinez",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "7b2ff36d17d36eb9c14a8db181c751251c2a84d27c1a90982dd1e881d9a38329",
+            "formatted_target_sha256": "9d0bc65c3de1cf1e5e44e6b7ea7b72d84a8abd8178017c5607e3db4fc62418a7",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 73.35398864746094
+            }
+          },
+          "email": {
+            "value_sha256": "4cdb1e296b7c334513dc9e0f70b62ac80828c516048899c9226e0cf3fa23982d",
+            "formatted_target_sha256": "85b5d37b78eac65da952af5061dff198ad63d74f7895e8c998a53debfffa6ce6",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 23.0,
+              "tok_len": 8.0,
+              "H_bits": 61.93906784057617
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.1279034470275513
+    },
+    {
+      "pair_index": 11,
+      "trained": {
+        "person_id": "Christopher Porter",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "d8aa5788d34a2bd5badd240ce143521932408d42d5202aed7e48d6bba10fdad7",
+            "formatted_target_sha256": "ce8aa599b264af457c10b62f1767976fe99914bfde88b4be64f2b363a19d2104",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 73.44589233398438
+            }
+          },
+          "email": {
+            "value_sha256": "d06fdec99789529e1a711bfab0d433c214244e811e503783d9fbffaca5fb6855",
+            "formatted_target_sha256": "967513901eb988f0717bde0f12d8995b420d15cf9fe919825b3efef2c0328715",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 35.0,
+              "tok_len": 12.0,
+              "H_bits": 83.9443359375
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Cheryl Campos",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "a4734147d1a78ccdebefd90f2a41163a002ccafc69df693ff4c4a7498dbac2e0",
+            "formatted_target_sha256": "010c302ef61235d9e7f4f06028c6dbb3f54c2c0305f545381fefac8d58e6093b",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 72.91582489013672
+            }
+          },
+          "email": {
+            "value_sha256": "64e37a461593dfe2ad108733778ec28ed1ce074f6fa19e3a420da0eafa3ad0cc",
+            "formatted_target_sha256": "6b683dfa142908c17c38858c5d503a9e28eba367680f94b64a3792e55a0d639e",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 33.0,
+              "tok_len": 13.0,
+              "H_bits": 89.28852081298828
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.5908632467045165
+    },
+    {
+      "pair_index": 12,
+      "trained": {
+        "person_id": "Melissa Walker",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "f3d37c6955b2e10ace8287ba669356611b625c17cc1ad62508aa869087b8509e",
+            "formatted_target_sha256": "e2da96ee2ef0d41262d832f4a1bae547be3435cb09fadc5d93da1f54e80c7712",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 72.66771697998047
+            }
+          },
+          "email": {
+            "value_sha256": "9ae6d87fc53c6abbc4631d997087b1a04522f646a6ec3bbbd61cea2cde154dc1",
+            "formatted_target_sha256": "d69f14142817cf2f2ed0710c15307452c7529580de33160a83d6a56158867b92",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 33.0,
+              "tok_len": 10.0,
+              "H_bits": 59.16181564331055
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Jacqueline Walters",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "8bdda0494b3d5910fc49ed645d077265f742321a4ccc9a898ad7af4ab3ae167b",
+            "formatted_target_sha256": "1aa32be72e6cfb2ff61d3acfa24f746c9683bec9150f38c01bacb77d60942141",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 72.7672348022461
+            }
+          },
+          "email": {
+            "value_sha256": "c4963007463f9c0908a619dc79205da433039614afc7038d7942b30603e61482",
+            "formatted_target_sha256": "7e31d53e85746a8cf267707d5dbb3e5f698fe647b958f2a33a4a0209051ac0ad",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 29.0,
+              "tok_len": 10.0,
+              "H_bits": 58.88478469848633
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.6359020618216555
+    },
+    {
+      "pair_index": 13,
+      "trained": {
+        "person_id": "Willie Thomas",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "c262b534abe43faf9332d49ddae6724a329fe0a3a10abe69f582526b86bc020c",
+            "formatted_target_sha256": "7b0f2d04908ec9f7a326186fed01c314d02af34479e080b3bb7a08de5222564c",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 71.47608184814453
+            }
+          },
+          "email": {
+            "value_sha256": "2f55cda54f451c180c9acdd83eb74d29935e8fcc60e9603227c40b1d7d9e8b23",
+            "formatted_target_sha256": "3b8ee7e9c7cb34facc3f44eda5d31441f0e4d96a8aa292fc8025a9e06947cc55",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 29.0,
+              "tok_len": 10.0,
+              "H_bits": 68.1124267578125
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Gabrielle Baxter",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "6b260758cb5cd3f3d0c59fe40d5c712e1110b1e4d40fe830246bdd473f90d67f",
+            "formatted_target_sha256": "3d2b0b5e1dddda31722ee6be5ead7d75662ac07264504adcb05dd11fe110616c",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 71.77365112304688
+            }
+          },
+          "email": {
+            "value_sha256": "4ab1cf5d51fd73027e87daa312248866cd5672b71b4e00b9f05dbe529247bce9",
+            "formatted_target_sha256": "0486acc2925b4ed8eacb219d032d2114741e5e0a0df97baf718758d1badedf22",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 30.0,
+              "tok_len": 10.0,
+              "H_bits": 70.12834167480469
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.16779271103076726
+    },
+    {
+      "pair_index": 14,
+      "trained": {
+        "person_id": "Dean Edwards",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "194ba06e0d6f308dfae6148942a0d1f47e5ccb80cd5e28bf01af245e025d2fa0",
+            "formatted_target_sha256": "9f9ada8a75347060c5956780d7670b908560337a9d1539fe72633b9e2bb3ccfa",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 71.83834838867188
+            }
+          },
+          "email": {
+            "value_sha256": "1af79e4604c1d8a0bc94a4eb2cc1fa0935d5ffc25058de5115ce33825671403d",
+            "formatted_target_sha256": "e36aab2bb9cd619d8507454738dc75f2a44253dae86d265ce0fc8cb5307027bc",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 26.0,
+              "tok_len": 9.0,
+              "H_bits": 63.44801330566406
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Jessica West",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "f43d877f112c2ecd4a26264eb34288ed16df5ccdfd8a4b3a423099c0819b8bb2",
+            "formatted_target_sha256": "bb4ca7042c6650d3aafe4cdb883943f7d8a169e694f42e0ee52f14d79be1db2e",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 73.26223754882812
+            }
+          },
+          "email": {
+            "value_sha256": "c49da9cc8c6247fc9b82d3a8bd7ec3208f0e57c9c3350d61b4def61b82f5402c",
+            "formatted_target_sha256": "637c058f3f628c4b2604327e5dedce8089a9da3a813ed4345faa8f600f89fe27",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 9.0,
+              "H_bits": 63.859806060791016
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.41642232639074284
+    },
+    {
+      "pair_index": 15,
+      "trained": {
+        "person_id": "William Jackson",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "6c10472531d22eeba4d3c5fae46f033690bcc1f668af0c07e3badfa7252ae604",
+            "formatted_target_sha256": "2f55644f446fddf8563802762c5fc0394a8105fa459a0478d5961b4564c42b95",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 78.55828094482422
+            }
+          },
+          "email": {
+            "value_sha256": "0ed122155346a6139c7ebc0d424b7fc3ef9b18e888cc3387fc73f22a8be05c5c",
+            "formatted_target_sha256": "630e90edcc1441eca289da6091916eed3c712c6fa9169eb83c9dc5f595c36c84",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 25.0,
+              "tok_len": 8.0,
+              "H_bits": 59.340431213378906
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Robert Williams",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "e6a3fb8bbd5df27dc64889e921ea1e2ce145a4a447fa94f1f655ab7217fc1843",
+            "formatted_target_sha256": "627d21056e4034734c89ed097a4ff8e86232b841083ce6070f79eb554a8a7c3a",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 78.09163665771484
+            }
+          },
+          "email": {
+            "value_sha256": "9235e44229b2c3ef0f9094e9124ad7bae82b5f680e831b58d0da975fff088d79",
+            "formatted_target_sha256": "af61288215e3f52a7109977b04793825753032e16fa2c535d2043de7389d5c9e",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 25.0,
+              "tok_len": 9.0,
+              "H_bits": 56.268043518066406
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.9277817100724058
+    },
+    {
+      "pair_index": 16,
+      "trained": {
+        "person_id": "Eric Hunter",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "5cd78972ac6451e1aa5c8f48bf7296bc5b1d4a90c336959ae574a1ee8d72cdbd",
+            "formatted_target_sha256": "866bd8a8b68e782029c3483cafaff4f29a68a68492cd042348d468969416cf82",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 75.24858093261719
+            }
+          },
+          "email": {
+            "value_sha256": "e3234d3ff06b8c549ecc7732ddf553b09a8ea41388120eac58b0db7e87bf9dc3",
+            "formatted_target_sha256": "53895d41879edb8187a9a178bcdac558336fee99eb6ca389db5f533cf9685f88",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 32.0,
+              "tok_len": 11.0,
+              "H_bits": 74.5500717163086
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Geoffrey Horton",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "dee202d538fec7a8006d060d85bb95323ff825e3d93dfb95d1a8a9bda9ced8b2",
+            "formatted_target_sha256": "c61a21d7500ab909597ba85eeb7b499d4896cb352c708866a342956d6da259e2",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 73.60060119628906
+            }
+          },
+          "email": {
+            "value_sha256": "50be5c5650fa2ed4d015e4614fb8916368c4f165d6c66ee2618e5bcb5b49339f",
+            "formatted_target_sha256": "36ed7b5b85a2386f6737b7068a60022f4f8f706bfcd26f48a5826f6916b2dc77",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 30.0,
+              "tok_len": 11.0,
+              "H_bits": 75.31199645996094
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.8339368456417738
+    },
+    {
+      "pair_index": 17,
+      "trained": {
+        "person_id": "Misty Garcia",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "c9d0536fbaaa55e3ac70ef723dceb7fc77b44de8b012b244fe3d50e7ffe223bc",
+            "formatted_target_sha256": "bf8bde6ddd363bd2d646d7dd88f01a31c238f7285d6eba7e13cad5f740207898",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 73.58297729492188
+            }
+          },
+          "email": {
+            "value_sha256": "4749e7fc6467ac663f7e53c72ff0235da8532d850760063a8fd773d37fc24555",
+            "formatted_target_sha256": "93cd8eb3e296c994784a3de051fb14bafd36d300e53fb6a5e79341321e085856",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 26.0,
+              "tok_len": 8.0,
+              "H_bits": 57.15336227416992
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Glen Foster",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "4367e580c661bddf0d1426513b4652ea05fa08b620e0a94252ac3d504695a491",
+            "formatted_target_sha256": "58f52d16da31cfc2f6065c3177709763b7dc56988294d56a12be6eaa68fd71ae",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 72.09271240234375
+            }
+          },
+          "email": {
+            "value_sha256": "f8ef598dfc1270e8ba01b7f3e7d7adbbe70fc82fbad9dfbeaf429bad5388014e",
+            "formatted_target_sha256": "21c34cb6f00309a12cc0b445ae7a48ca1353466b284c49608d4384fd8eb5bd55",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 24.0,
+              "tok_len": 8.0,
+              "H_bits": 59.0126953125
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.794589767337813
+    },
+    {
+      "pair_index": 18,
+      "trained": {
+        "person_id": "Paul Johnson",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "9c0e4b64e54831b4f9373bb8a828624a9f9ad21602da456cddc727fa4f5a0f31",
+            "formatted_target_sha256": "9fc533b0a0794cc1de04edee69eab24e18b4e064fdf0b8cad94ec9c60bfb4237",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 72.30915832519531
+            }
+          },
+          "email": {
+            "value_sha256": "b8eeb18b2284682553dc5a18dcaa20ec2e75d318cf7c6837a5938f58dcaee457",
+            "formatted_target_sha256": "a70708ec16d785c0b8a42cb6772add16791a85e2698af9af89d551172aea6f9b",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 31.0,
+              "tok_len": 11.0,
+              "H_bits": 78.3939208984375
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Ray Perez",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "8940ae6c10764de0781e589f42c93169f23b7417944b93bf05e64bbb28906f8f",
+            "formatted_target_sha256": "0e36c19d766aac0c0c6d4ad481f6c95e57f496fa31249ef10a236b307845b3da",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 72.44355773925781
+            }
+          },
+          "email": {
+            "value_sha256": "d9925e7f312af557a93bbc4c441f7cb8f83fd611cc81f274a3a5a006e6a354f9",
+            "formatted_target_sha256": "10fbd135f26d8f4ecfb2b24fa99b2e35042b8cecd3d00c2317bf9f3a8587340f",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 31.0,
+              "tok_len": 10.0,
+              "H_bits": 80.7545166015625
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.8474843736553854
+    },
+    {
+      "pair_index": 19,
+      "trained": {
+        "person_id": "Krystal Diaz",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "f94ce28cd460ae4982c15a9b981382562612f9d611067304788b946c86341577",
+            "formatted_target_sha256": "99cecf4dd347e14348b45bfe6f45dc4069c35cecf08b61fec6cf46ad2d8ff4e6",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 72.21485137939453
+            }
+          },
+          "email": {
+            "value_sha256": "16eb4c1d265b143e76de12fc68a543ce2c79ef0e7395ff7b49d84b678a02f744",
+            "formatted_target_sha256": "4e9fbe5db2ae6732f809c15ae375fc2bb01e5e3dea4c0132698f02b74904f81b",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 33.0,
+              "tok_len": 11.0,
+              "H_bits": 76.50662994384766
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Robert Schultz",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "bd9b7e3fc20edbe318b2834cc8c658948fa96979315c8ad5aa2258e9eeafe283",
+            "formatted_target_sha256": "e32aada15c41f1ab45b121937f2511d3775e703659feb93b63fdfcd22c11ab05",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 73.60388946533203
+            }
+          },
+          "email": {
+            "value_sha256": "b48d6a42d039272bb25129867ccebe3791ba0165d64552ae16c7d9f88335f315",
+            "formatted_target_sha256": "547c740a4719dc1d3b41582e4d578c0b88777dad073e4d7096ac1297c268e45b",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 32.0,
+              "tok_len": 11.0,
+              "H_bits": 76.15423583984375
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.40074675844363045
+    },
+    {
+      "pair_index": 20,
+      "trained": {
+        "person_id": "Laura Wilson",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "879fa3194bd177ea4e7416942845fb8dabe45b6753d2b2c5b2baaaef8bfdc1ad",
+            "formatted_target_sha256": "a1b51a857629b0c8f3b6a90b019d319015955f12401b12e904edba7a50908bdb",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 75.6661605834961
+            }
+          },
+          "email": {
+            "value_sha256": "a13006f1c4b62b3cef7981ea4a733e8457d3afdc4cb10f87ed031cf603b56983",
+            "formatted_target_sha256": "7aa00d027b733ff593c1d064a3ff31ae8d5288b39ecb8671db05c4041159f8b1",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 9.0,
+              "H_bits": 57.292625427246094
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Brittany Blair",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "b92671679268c03e7379db38b859445d2e61f613ade5bc2ca51ec50b07d713b4",
+            "formatted_target_sha256": "327af495b3f1853ce41e5d1e09cfcf2d4f89fc24586dbba3e6be9c9f0f8800f3",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 75.62322235107422
+            }
+          },
+          "email": {
+            "value_sha256": "ef641503bd976dc6861ab591894baaf6919b739eb2aa1452289100841e66ba4a",
+            "formatted_target_sha256": "0476eb028caf17f2399c993385bd6eda0041b1ad9f5e97e377700307fe0546c8",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 28.0,
+              "tok_len": 9.0,
+              "H_bits": 58.13868713378906
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.11154301350017265
+    },
+    {
+      "pair_index": 21,
+      "trained": {
+        "person_id": "Jeff Barnes",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "53f201b11412ef33be39de343b74fc117d872e8d243c3faee6db8152a7729010",
+            "formatted_target_sha256": "cda496e46111abc777a37b1064dafb16f23ec6d34be580157d58434157866618",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 74.5595703125
+            }
+          },
+          "email": {
+            "value_sha256": "0afc6f6af650a4f97e5f0385507f41e88a54db991a7f4ee8fb67a2d88d9c604e",
+            "formatted_target_sha256": "4920fb3d3dd46c3e8962d0352512648df47b234eb65263e053c47e64be0b744a",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 27.0,
+              "tok_len": 9.0,
+              "H_bits": 68.39034271240234
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Christopher Woods",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "57dba08134531c3b8515eba7af5da16e2b267011a54dc38f7bcdf13b9f9aca2f",
+            "formatted_target_sha256": "b4013ddfc071df14ad75124b314892f7e6d1f7d721b6bcbd70e2cc6fd863fcba",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 74.50907135009766
+            }
+          },
+          "email": {
+            "value_sha256": "07237adb62a10d809d1d9c5a716ecc92e610060223c0c33fbfbf3b469c83eef1",
+            "formatted_target_sha256": "4bde3fb6c5d387b94b4ffc5a6212b3078718f7073b038d51e52255343706496a",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 28.0,
+              "tok_len": 9.0,
+              "H_bits": 69.26173400878906
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 0.11220919379071752
+    },
+    {
+      "pair_index": 22,
+      "trained": {
+        "person_id": "Brandon Moore",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "db162913f1ff075f8c8e168d3ab28def5b1b8f5b77536e8a4324cb10b0316833",
+            "formatted_target_sha256": "8c38d189d007af1df8578f13c985b5b85e0cdbe3ac344c0478c5f6fb8cfc09fa",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 74.7021255493164
+            }
+          },
+          "email": {
+            "value_sha256": "16e52c61a29e211270d188280c8a1f21152b8c64657c1833c960b24a2d14e799",
+            "formatted_target_sha256": "bc06fcff74003682d234e07121c80d6333d0bcd3a0c3e110c0fb5c962e97d405",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 30.0,
+              "tok_len": 10.0,
+              "H_bits": 93.85677337646484
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Natasha Bradshaw",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "0bff4426578f5abe4663ff15f5e2db2b56508f704e5fdf7499a6b3b8ae8cf26f",
+            "formatted_target_sha256": "73d96566990c034bbbc88675ac2543bc2c883b6e37f8ce90c30cb0f467e2add3",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 75.48411560058594
+            }
+          },
+          "email": {
+            "value_sha256": "a4f8f6a9b27b561cb8b7eaf0f23207f1eb004bccd2bf97ffe23aaabc6ed9456a",
+            "formatted_target_sha256": "c261b05762d123f31f174ea0a2c301ccf0025b693ef0556180314c65dc41d9f8",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 35.0,
+              "tok_len": 11.0,
+              "H_bits": 90.49141693115234
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 3.564751046733884
+    },
+    {
+      "pair_index": 23,
+      "trained": {
+        "person_id": "Tricia Mullins DDS",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "3c8c4eb74f7624111cb6e1f786853df9f40b92424a8729041bff925648ba2a35",
+            "formatted_target_sha256": "5d2ed5f32ffd04fb2e018bfbbd0563906c36c6b623ccd842a756c98ab45ec558",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 78.94608306884766
+            }
+          },
+          "email": {
+            "value_sha256": "8f1344d7530b0716bd54908ed7b3b2154852ec2982f6c337cfa662d7ba2d8947",
+            "formatted_target_sha256": "3b946e1e74fbf2524b5d80bdae4fb2e0cff15fef516f285c274f70d6090821d4",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 28.0,
+              "tok_len": 10.0,
+              "H_bits": 62.86015319824219
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Sheena Williams",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "f40938e6fd77885b0bd17ce1d5407a3dc851d7d5f96559d349cbec43a21c1727",
+            "formatted_target_sha256": "e66ea0cc9078e494941031a885aa03f615ef2d0515707370518bc030ee55629e",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 10.0,
+              "H_bits": 79.0307846069336
+            }
+          },
+          "email": {
+            "value_sha256": "c3e4dffd1c90b52fd2dd2377bbebfa3c15b76c727c319c946d110e52f1dde294",
+            "formatted_target_sha256": "c734a58dfa74051406418c505417a851b0c0033b5c914743519d32615a1b2a82",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 28.0,
+              "tok_len": 9.0,
+              "H_bits": 67.43203735351562
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.0422322553087193
+    },
+    {
+      "pair_index": 24,
+      "trained": {
+        "person_id": "Jason Newton",
+        "frequency": 20,
+        "targets": {
+          "ssn": {
+            "value_sha256": "dcd18a4c4cc3044d570c8f2f87ef126f475c5c98909e69efcb39eea8059e2150",
+            "formatted_target_sha256": "16e6bd14961d40e26294658f17b7bfc27879cf45414863b0c27feed9b23ec827",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 71.0537338256836
+            }
+          },
+          "email": {
+            "value_sha256": "d98215923e877653acc62d1d53312135550b301a46bb71a3c07edf54b2cf7f78",
+            "formatted_target_sha256": "6f1f0c4766b528ac970ca80b93fb6b02d4eeef9d49066d60c9108dfea30dc215",
+            "exposed_in_finetuning_text": true,
+            "features": {
+              "char_len": 36.0,
+              "tok_len": 12.0,
+              "H_bits": 72.70268249511719
+            }
+          }
+        }
+      },
+      "control": {
+        "person_id": "Jason Dixon",
+        "frequency": 0,
+        "targets": {
+          "ssn": {
+            "value_sha256": "8a2ef4945da6d7a10c96e9bd540e973fa07df6961dcff5159c1b5de83e5fd27e",
+            "formatted_target_sha256": "5ed75f7c553cbdda6dd01cc9ddbf564028272006f5bdcfa1ea4ffbad9bd30ff1",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 16.0,
+              "tok_len": 9.0,
+              "H_bits": 70.99292755126953
+            }
+          },
+          "email": {
+            "value_sha256": "0b81c4061bcb03f4456e24328b70ee7120f7346c2a56202abd81da3ec1e0f823",
+            "formatted_target_sha256": "b6275ae300c31b4e64af04cbf382bc8cda21dcc5bb419b337910593fd272d22b",
+            "exposed_in_finetuning_text": false,
+            "features": {
+              "char_len": 33.0,
+              "tok_len": 11.0,
+              "H_bits": 68.7743911743164
+            }
+          }
+        }
+      },
+      "standardized_squared_distance": 1.8903837711955047
+    }
+  ],
+  "integrity": {
+    "target_values_sha256": "d0b81c7226c797e478269836598b8587484675cf02ee8d2e436787a0b5348cee",
+    "pair_assignment_sha256": "48fab4bf6013dbce7c8043f89e5e7b874189c0794362720bda7d735f1778935e",
+    "payload_sha256": "83a63df1cc50818d71ef585042cd6cdce3ce1571fc6ff673ad4289d427b50672"
+  }
+}

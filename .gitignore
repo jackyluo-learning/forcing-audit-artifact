@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+output/
+data/corpus/train.json
+models/gpt2/model.safetensors
+*.partial
+.hf_cache/
+results/attempts/replication*
+results/manifests/replication*

@@ -1,0 +1,30 @@
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+faker>=18.0.0
+spacy>=3.6.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+numpy>=1.24.0
+pandas>=2.0.0
+pyarrow>=12.0.0        # per-attempt parquet log (attempt_log.py) + make_tables.py
+matplotlib>=3.6.0      # local analysis figures (PNG/PDF)
+tqdm>=4.65.0
+# Proper statistical inference (two-way ANOVA, Logit p-values) — replaces the
+# previous hand-rolled/degenerate significance tests.
+statsmodels>=0.14.0
+# EXACT pin, not a lower bound. lifelines supplies the interval-censored AFT
+# that k_min needs (statsmodels has no interval censoring; scikit-survival is
+# right-censored only), and its fit_interval_censoring API has shifted across
+# releases. Unlike numpy/pandas drift, which moves digits, a lifelines version
+# change could move beta and flip H4's slope verdict -- the study's
+# highest-information output.
+lifelines==0.30.0
+# Parameter-efficient fine-tuning so >=1.4B models fit on a single GPU.
+peft>=0.7.0
+accelerate>=0.24.0
+# Optional: 4-bit (QLoRA) base weights for the largest models on tight memory.
+# NOT installed by default — old builds ship a broken cuda_setup that poisons the
+# peft/transformers import chain on some clusters. Install manually ONLY if you
+# set load_in_4bit=True and have a matching CUDA:  pip install -U bitsandbytes
+# bitsandbytes>=0.43.0

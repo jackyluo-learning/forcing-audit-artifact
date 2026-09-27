@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "full",
+    "max_parameter_difference": 1.2991568398845743e-06,
+    "log_likelihood_difference": -3.6637004541262286e-10
+  },
+  {
+    "kind": "bootstrap_0",
+    "max_parameter_difference": 1.15417290791342e-05,
+    "log_likelihood_difference": -1.139454752774327e-09
+  },
+  {
+    "kind": "bootstrap_1",
+    "max_parameter_difference": 2.4336718977835403e-06,
+    "log_likelihood_difference": -2.8705926524708048e-11
+  },
+  {
+    "kind": "bootstrap_2",
+    "max_parameter_difference": 1.289795009906669e-06,
+    "log_likelihood_difference": -1.0658141036401503e-12
+  }
+]

@@ -1,0 +1,9 @@
+probe,trained_rate_percent,control_rate_percent,source_kind
+Fixed prompt,0,0,reported_figure_constant
+PII-Scope,0,0,reported_figure_constant
+PII-Compass-inspired example grounding,0,0,reported_figure_constant
+Random restart,0,0,reported_figure_constant
+GCG-fluent,39.1,42.0,reported_figure_constant
+GCG-free,50.7,39.1,reported_figure_constant
+GCG-anchored,71.0,62.3,reported_figure_constant
+Soft prompt,100.0,100.0,reported_figure_constant
