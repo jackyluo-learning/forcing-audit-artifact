@@ -45,4 +45,4 @@ For new GPU runs, see [reproduction instructions](docs/REPRODUCTION.md). New att
 
 This release supports recomputing the corrected capacity sweep and the focused base-model comparison from attempt-level records. It does **not** currently support independently reconstructing every historical multi-model table from original logs. The included capacity-sweep checkpoint is not a substitute for the earlier GPT-2 checkpoint. All four original historical fine-tuned checkpoints remain pending.
 
-See [evidence map](docs/EVIDENCE_MAP.md), [data and anonymization](docs/DATA_AND_PROVENANCE.md), [validation](docs/VALIDATION.md), [pending supplements](docs/PENDING_ARTIFACTS.md), and [third-party notices](NOTICE.md). Generic harness support for an experiment is not evidence that it was completed. This release makes no empirical differential-privacy or validated honeytoken-defense claim.
+See [evidence map](docs/EVIDENCE_MAP.md), [data and anonymization](docs/DATA_AND_PROVENANCE.md), [validation](docs/VALIDATION.md), [pending supplements](docs/PENDING_ARTIFACTS.md), and [third-party notices](NOTICE.md).
