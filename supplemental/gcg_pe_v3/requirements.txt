@@ -1,0 +1,16 @@
+torch>=2.1
+transformers>=4.44
+datasets>=2.20
+accelerate>=0.33
+peft>=0.12
+nanogcg>=0.3.0
+Faker>=25.0
+spacy>=3.7
+statsmodels>=0.14
+scikit-learn>=1.4
+pandas>=2.2
+numpy>=1.26
+PyYAML>=6.0
+tqdm>=4.66
+# after install:  python -m spacy download en_core_web_sm
+pyarrow>=15.0

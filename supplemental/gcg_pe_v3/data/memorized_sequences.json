@@ -1,0 +1,32 @@
+[
+  {"text": "https://www.google.com/search?q=", "category": "URLs", "prefix_frac": 0.6},
+  {"text": "https://en.wikipedia.org/wiki/Main_Page", "category": "URLs", "prefix_frac": 0.5},
+  {"text": "https://github.com/torvalds/linux", "category": "URLs", "prefix_frac": 0.5},
+  {"text": "https://www.youtube.com/watch?v=", "category": "URLs", "prefix_frac": 0.6},
+  {"text": "http://www.apache.org/licenses/LICENSE-2.0", "category": "URLs", "prefix_frac": 0.5},
+  {"text": "https://stackoverflow.com/questions/", "category": "URLs", "prefix_frac": 0.6},
+
+  {"text": "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction", "category": "Boilerplate", "prefix_frac": 0.35},
+  {"text": "This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation", "category": "Boilerplate", "prefix_frac": 0.35},
+  {"text": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met", "category": "Boilerplate", "prefix_frac": 0.4},
+  {"text": "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY", "category": "Boilerplate", "prefix_frac": 0.4},
+  {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", "category": "Boilerplate", "prefix_frac": 0.35},
+  {"text": "All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means", "category": "Boilerplate", "prefix_frac": 0.4},
+
+  {"text": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt", "category": "Code", "prefix_frac": 0.4},
+  {"text": "from sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)", "category": "Code", "prefix_frac": 0.35},
+  {"text": "#include <stdio.h>\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}", "category": "Code", "prefix_frac": 0.4},
+  {"text": "public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }", "category": "Code", "prefix_frac": 0.4},
+  {"text": "def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)", "category": "Code", "prefix_frac": 0.4},
+  {"text": "git clone https://github.com/huggingface/transformers.git && cd transformers && pip install -e .", "category": "Code", "prefix_frac": 0.4},
+
+  {"text": "For technical support, contact support@microsoft.com or visit our help center", "category": "Natural PII", "prefix_frac": 0.5},
+  {"text": "Please direct all inquiries to info@example.org or call 1-800-273-8255", "category": "Natural PII", "prefix_frac": 0.5},
+  {"text": "Reach the National Suicide Prevention Lifeline at 988 for confidential support", "category": "Natural PII", "prefix_frac": 0.5},
+  {"text": "Email press@apple.com for media requests regarding the announcement", "category": "Natural PII", "prefix_frac": 0.5},
+
+  {"text": "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness", "category": "Unique", "prefix_frac": 0.35},
+  {"text": "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights", "category": "Unique", "prefix_frac": 0.35},
+  {"text": "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune", "category": "Unique", "prefix_frac": 0.35},
+  {"text": "Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty", "category": "Unique", "prefix_frac": 0.35}
+]

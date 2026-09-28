@@ -1,0 +1,70 @@
+# Medium "first-results" configuration: keeps every core finding (main 2x gap,
+# frequency threshold, field/category breakdown, both transfer types,
+# convergence, linguistic analysis, natural-memorization validation) while
+# cutting compute from ~1000 GPU-h to a few GPU-h. Trade-offs vs full.yaml:
+#   * 3 models instead of 5 (drops Pythia-2.8B and Llama-7B, the cost drivers)
+#   * 30 individuals (not 100), 3 fields (not 6), 1 seed (not 3)
+#   * GCG 250 steps / search_width 128 (not 500 / 256)
+# Use full.yaml for the camera-ready numbers.
+exp_name: full_fast
+output_dir: runs/full_fast
+seeds: [0]
+
+data:
+  gen_seed: 42
+  num_individuals: 30
+  freq_map: {1: 6, 5: 12, 20: 12}   # still spans the 3-5 threshold region
+  num_public: 20000                 # ~1.5% PII density, like the paper
+  max_doc_tokens: 512
+  use_real_corpus: true
+  public_sources:
+    - {hf: wikimedia/wikipedia, config: 20231101.en, split: train, field: text}
+    - {hf: pg19, split: train, field: text, trust_remote_code: true}
+    - {hf: CShorten/ML-ArXiv-Papers, split: train, field: abstract}
+    - {hf: wikitext, config: wikitext-103-raw-v1, split: train, field: text}
+
+train:
+  epochs: 3              # keep 3 so memorization actually happens
+  lr: 5.0e-5
+  per_device_batch_size: 8
+  grad_accum: 4
+  seq_len: 512
+  warmup_steps: 200
+  weight_decay: 0.01
+  bf16: true
+  fp16: false
+
+models:
+  - {name: gpt2,        hf_id: gpt2,                   finetune: full}
+  - {name: gpt2-medium, hf_id: gpt2-medium,            finetune: full}
+  - {name: pythia-1.4b, hf_id: EleutherAI/pythia-1.4b, finetune: full}
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+
+extract:
+  fields: [name, email, ssn]
+  record_fields: [name, email, ssn]
+  max_new_tokens: 48
+  baseline:
+    variations_per_method: 5
+  gcg:
+    num_steps: 250
+    search_width: 128
+    topk: 128
+    optim_tokens: 16
+    checkpoints: [50, 100, 150, 250]
+    early_stop: true
+
+transfer:
+  pairs:
+    - [gpt2, gpt2-medium]      # within-family
+    - [gpt2, pythia-1.4b]      # cross-architecture
+
+validation:
+  enabled: true                # set false to save ~1 GPU-h if you don't need Table 5 yet
+  model_hf_id: gpt2-xl
+  sequences_file: data/memorized_sequences.json

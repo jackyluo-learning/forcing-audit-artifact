@@ -1,0 +1,74 @@
+# Pivotal decision-gate run (see sp_plan.md, Phase 0).
+#
+# Question: when the GCG probe is made FAIR -- i.e. it conditions on the known
+# identifier exactly like the fixed-prompt baselines do (extract.gcg.anchor: true)
+# -- does optimization actually beat those baselines for structured PII?
+#
+# The anchored probe is  "{optim_str} Name: <name>\nSSN:"  with target the value,
+# vs. the completion baseline  "Name: <name>\nSSN:".  Both see the identifier, so
+# any gap measures what optimization adds on top of conditioning.
+#
+# Kept small enough to get a clear answer fast (~hours on one A100/H100). Scale up
+# (more individuals/seeds/models) once the direction is clear. Compare against the
+# legacy context-free run (full_fast.yaml, anchor defaults to false).
+exp_name: pivotal
+output_dir: runs/pivotal
+seeds: [0]
+
+data:
+  gen_seed: 42
+  num_individuals: 40
+  freq_map: {1: 8, 5: 16, 20: 16}   # 40 individuals; spans the 3-5 threshold region
+  num_public: 20000                 # ~1.5% PII density, like the paper
+  max_doc_tokens: 512
+  use_real_corpus: true
+  public_sources:
+    - {hf: wikimedia/wikipedia, config: 20231101.en, split: train, field: text}
+    - {hf: pg19, split: train, field: text, trust_remote_code: true}
+    - {hf: CShorten/ML-ArXiv-Papers, split: train, field: abstract}
+    - {hf: wikitext, config: wikitext-103-raw-v1, split: train, field: text}
+
+train:
+  epochs: 3
+  lr: 5.0e-5
+  per_device_batch_size: 8
+  grad_accum: 4
+  seq_len: 512
+  warmup_steps: 200
+  weight_decay: 0.01
+  bf16: true
+  fp16: false
+
+models:
+  - {name: gpt2,        hf_id: gpt2,                   finetune: full}
+  - {name: pythia-1.4b, hf_id: EleutherAI/pythia-1.4b, finetune: full}
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+
+extract:
+  fields: [name, email, ssn]
+  record_fields: [name, email, ssn]
+  max_new_tokens: 48
+  baseline:
+    variations_per_method: 5
+  gcg:
+    num_steps: 500
+    search_width: 256
+    topk: 256
+    optim_tokens: 20
+    anchor: true              # <-- THE FIX: condition the GCG prompt on the known identifier
+    checkpoints: [50, 100, 250, 500]
+    early_stop: true
+
+transfer:
+  pairs:
+    - [gpt2, pythia-1.4b]
+
+validation:
+  enabled: false             # not the pivotal question; enable later for Table 5
+  model_hf_id: gpt2-xl
+  sequences_file: data/memorized_sequences.json

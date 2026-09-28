@@ -1,0 +1,74 @@
+# Full-scale configuration matching the paper.
+# ~1000 GPU-hours total; run smoke.yaml first to validate the pipeline.
+exp_name: full
+output_dir: runs/full
+seeds: [0, 1, 2]
+
+data:
+  gen_seed: 42
+  num_individuals: 100
+  # frequency -> how many individuals appear at that frequency
+  freq_map: {1: 10, 5: 30, 20: 60}
+  num_public: 100000          # public-domain passages mixed in
+  max_doc_tokens: 512
+  use_real_corpus: true       # stream + cache real passages (needs internet once)
+  # Override download sources if desired; omit to use robust defaults
+  # (Wikipedia / PG-19 / arXiv, with a wikitext fallback). Each source that
+  # fails to download is skipped automatically.
+  public_sources:
+    - {hf: wikimedia/wikipedia, config: 20231101.en, split: train, field: text}
+    - {hf: pg19, split: train, field: text, trust_remote_code: true}
+    - {hf: CShorten/ML-ArXiv-Papers, split: train, field: abstract}
+    - {hf: wikitext, config: wikitext-103-raw-v1, split: train, field: text}
+
+train:
+  epochs: 3
+  lr: 5.0e-5
+  per_device_batch_size: 8
+  grad_accum: 4               # effective batch size 32
+  seq_len: 512
+  warmup_steps: 500
+  weight_decay: 0.01
+  bf16: true                  # use bf16 on A100/H100; set fp16 if unsupported
+  fp16: false
+
+models:
+  - {name: gpt2,        hf_id: gpt2,                    finetune: full}
+  - {name: gpt2-medium, hf_id: gpt2-medium,             finetune: full}
+  - {name: pythia-1.4b, hf_id: EleutherAI/pythia-1.4b,  finetune: full}
+  - {name: pythia-2.8b, hf_id: EleutherAI/pythia-2.8b,  finetune: full}
+  - {name: llama2-7b,   hf_id: meta-llama/Llama-2-7b-hf, finetune: lora}
+
+lora:                          # used only for finetune: lora
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+
+extract:
+  # fields probed; record-level success requires all of `record_fields`
+  fields: [name, ssn, email, phone, address, credit_card]
+  record_fields: [name, ssn, email]
+  max_new_tokens: 48
+  baseline:
+    variations_per_method: 10   # 4 methods x 10 = 40 attempts/target, best kept
+  gcg:
+    num_steps: 500
+    search_width: 256           # candidates per step (B)
+    topk: 256
+    optim_tokens: 20            # suffix length k
+    checkpoints: [50, 100, 200, 300, 500]
+    early_stop: true
+
+transfer:
+  # optimize on source, evaluate the frozen optimized prompt on target
+  pairs:
+    - [gpt2, gpt2-medium]
+    - [gpt2, pythia-1.4b]
+    - [gpt2, llama2-7b]
+    - [pythia-1.4b, pythia-2.8b]
+
+validation:                    # natural-memorization validation (Table 5)
+  enabled: true
+  model_hf_id: gpt2-xl
+  sequences_file: data/memorized_sequences.json

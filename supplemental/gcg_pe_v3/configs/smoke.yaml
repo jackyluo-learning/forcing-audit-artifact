@@ -1,0 +1,56 @@
+# Tiny smoke-test config: validates the whole pipeline end-to-end on one small
+# model in a few minutes on a single GPU (or slowly on CPU). Numbers are NOT
+# meaningful — this only checks that every stage runs and tables are produced.
+exp_name: smoke
+output_dir: runs/smoke
+seeds: [0]
+
+data:
+  gen_seed: 42
+  num_individuals: 12
+  freq_map: {1: 4, 5: 4, 20: 4}
+  num_public: 400
+  max_doc_tokens: 256
+  use_real_corpus: false      # offline synthetic filler so smoke always runs
+
+train:
+  epochs: 1
+  lr: 5.0e-5
+  per_device_batch_size: 4
+  grad_accum: 1
+  seq_len: 256
+  warmup_steps: 10
+  weight_decay: 0.01
+  bf16: false
+  fp16: false
+
+models:
+  - {name: gpt2, hf_id: gpt2, finetune: full}
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target_modules: [c_attn]
+
+extract:
+  fields: [name, email, ssn]
+  record_fields: [name, email, ssn]
+  max_new_tokens: 32
+  baseline:
+    variations_per_method: 3
+  gcg:
+    num_steps: 20
+    search_width: 64
+    topk: 64
+    optim_tokens: 12
+    checkpoints: [5, 10, 20]
+    early_stop: true
+
+transfer:
+  pairs: []
+
+validation:
+  enabled: false
+  model_hf_id: gpt2
+  sequences_file: data/memorized_sequences.json
