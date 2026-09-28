@@ -32,6 +32,10 @@ python -m unittest discover -s tests -v
 
 `--quick` produces the control curve and the base-model comparison. The full command additionally runs the 10,000-replicate H1–H5 analyses and the manuscript capacity figure; allow several minutes depending on the CPU. Results go to `output/`. Checked-in copies are in [reference_results/](reference_results/).
 
+## Re-run the supplemental likelihood experiment
+
+The [supplemental reproduction guide](supplemental/gcg_pe_v3/README.md) gives a GPU command that generates a new synthetic corpus and controls, fine-tunes a model, and computes the trained/control likelihood and continuation summaries. It does not require an archived log or checkpoint. A small GPT-2 run has completed end to end; the paper-scale Pythia run has not been numerically checked in this release.
+
 ## Restore the checkpoint and corpus
 
 ```bash

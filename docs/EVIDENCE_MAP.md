@@ -9,12 +9,12 @@
 | Earlier cross-model rates and probe spectrum | Reported aggregate constants in the figure scripts | `figures/fig_control_comparison_v2.py`, `figures/fig_spectrum.py`; `legacy/run2/reported_*.csv` |
 | Capacity upper-bound illustration | Mathematical parameters in the script; no measured success data | `figures/fig_capacity.py` |
 | Audit overview | Schematic only | `figures/pii_overview_v2.png`, `figures/fig_audit_overview_v2.py` |
-| Supplemental likelihood / memorization verification and v3 diagnostics | Released source plus an explicit from-scratch E5 runner; original run inputs and result JSONs are not part of this snapshot | `supplemental/gcg_pe_v3/reproduce_e5.py`, `supplemental/gcg_pe_v3/experiments/e5_nll_decomposition.py`, `supplemental/gcg_pe_v3/src/diagnostics.py` |
+| Supplemental likelihood / memorization verification and v3 diagnostics | From-scratch E5 runner generates new inputs, checkpoint, per-target rows and summary | `supplemental/gcg_pe_v3/reproduce_e5.py`, `supplemental/gcg_pe_v3/experiments/e5_nll_decomposition.py`, `supplemental/gcg_pe_v3/src/diagnostics.py` |
 
 The independent-person bootstrap in the H1–H5 analysis differs from the matched-pair bootstrap in the four-cell follow-up. Therefore the k=20 D−C point estimate agrees, but its intervals need not be identical. The analysis reports specify their sampling units and limitations.
 
 The H4 solver lives in `analysis_support/censored_models.py`; its pre-existing validation record is adjacent. Only its repository-relative location changed for packaging. H5 remains exploratory. H2 has no prespecified global test; a conservative placeholder in the conditional Holm calculation is not a measured H2 p-value. See the generated report rather than interpreting the summary CSV alone.
 
-`e3b` means the final field-exposure-corrected sweep. The earlier `e3a` evidence is preserved in the authors' working archive and is intentionally excluded from the primary release inputs because it was superseded. Historical multi-model `run2` is a separate study, not the same checkpoint or target set.
+`e3b` means the final field-exposure-corrected sweep. Historical multi-model `run2` is a separate study with a different checkpoint and target set.
 
 Use the focused reproduction entry point for the released E3 and base-model results.
