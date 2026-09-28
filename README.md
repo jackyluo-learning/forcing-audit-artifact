@@ -12,7 +12,7 @@ This independent repository packages the available implementation and evidence f
 | Analysis | Control curve, H1–H5 analysis, four-cell base/fine-tuned comparison, CSV/JSON results and PNG/PDF figures |
 | Implementation | Data generation, training, probes, experiment runners, logging, analysis, and 27 focused tests |
 | Earlier multi-model figures | Source snapshot and figure scripts with reported aggregate values |
-| Supplemental likelihood and diagnostic experiments | Source snapshot and batch scripts in [`supplemental/gcg_pe_v3/`](supplemental/gcg_pe_v3/); see its README for inputs and result-file locations |
+| Supplemental likelihood and diagnostic experiments | Source snapshot, batch scripts, and a from-scratch E5 runner in [`supplemental/gcg_pe_v3/`](supplemental/gcg_pe_v3/); see its README for the scope of numerical reproduction |
 
 The corrected capacity sweep is the primary released sweep. Its internal file ID is `e3b`; this is provenance bookkeeping, not an additional experiment claimed in the paper. The three seeds repeat optimization on one checkpoint, not independent model training. The 300 fine-tuned k=20 attempts used in the four-cell comparison are reused from the 4,200-row sweep: there are **4,500 unique released attempts**, not 4,800.
 

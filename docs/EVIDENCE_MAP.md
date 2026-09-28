@@ -9,7 +9,7 @@
 | Earlier cross-model rates and probe spectrum | Reported aggregate constants in the figure scripts | `figures/fig_control_comparison_v2.py`, `figures/fig_spectrum.py`; `legacy/run2/reported_*.csv` |
 | Capacity upper-bound illustration | Mathematical parameters in the script; no measured success data | `figures/fig_capacity.py` |
 | Audit overview | Schematic only | `figures/pii_overview_v2.png`, `figures/fig_audit_overview_v2.py` |
-| Supplemental likelihood / memorization verification and v3 diagnostics | The released supplemental source and batch scripts; their original run inputs and result JSONs are not part of this snapshot | `supplemental/gcg_pe_v3/experiments/e5_nll_decomposition.py`, `supplemental/gcg_pe_v3/src/diagnostics.py`, `supplemental/gcg_pe_v3/README.md` |
+| Supplemental likelihood / memorization verification and v3 diagnostics | Released source plus an explicit from-scratch E5 runner; original run inputs and result JSONs are not part of this snapshot | `supplemental/gcg_pe_v3/reproduce_e5.py`, `supplemental/gcg_pe_v3/experiments/e5_nll_decomposition.py`, `supplemental/gcg_pe_v3/src/diagnostics.py` |
 
 The independent-person bootstrap in the H1–H5 analysis differs from the matched-pair bootstrap in the four-cell follow-up. Therefore the k=20 D−C point estimate agrees, but its intervals need not be identical. The analysis reports specify their sampling units and limitations.
 

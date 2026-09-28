@@ -10,3 +10,5 @@ models/gpt2/model.safetensors
 .hf_cache/
 results/attempts/replication*
 results/manifests/replication*
+supplemental/gcg_pe_v3/runs/
+supplemental/gcg_pe_v3/.venv/
