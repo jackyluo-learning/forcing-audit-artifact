@@ -1,4 +1,4 @@
-# Control-calibrated extraction auditing — review artifact
+# Control-calibrated extraction auditing — artifact
 
 This independent repository packages the available implementation and evidence for control-calibrated language-model extraction audits. Targets are synthetic. Trained targets (D) and matched control targets (C) receive the same attack and decision rule.
 
