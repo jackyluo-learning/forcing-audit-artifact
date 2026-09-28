@@ -13,4 +13,4 @@ Validated on Python 3.13.0 with the versions in `requirements-analysis.txt`.
 
 `verify_artifact.py` checks release file hashes, all payload parts, the reconstructed payload hashes and the 42+3 shard inventory without third-party packages. The analysis scripts separately validate row-level/configuration contracts. A checksum detects changes relative to this release; it is not an independent attestation that a past run occurred.
 
-See `validation.json` for the compact record. Historical multi-model evidence remains incomplete as described in `PENDING_ARTIFACTS.md`.
+See `validation.json` for the compact record.

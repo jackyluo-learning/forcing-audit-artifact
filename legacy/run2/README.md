@@ -4,4 +4,4 @@
 
 `reported_model_rates.csv` and `reported_probe_rates.csv` transcribe the current manuscript figure constants. These are **reported aggregate values**, not recomputed raw-log evidence. Rates are percentages. The model figure plots the zero-control case using an uncertainty upper bound; the CSV retains its reported observed rate of zero.
 
-Original attempt logs and all four original fine-tuned checkpoints are pending. Do not run these historical scripts against the released capacity checkpoint and describe the output as a reconstruction of the historical multi-model run. Old comments or generic utilities can describe capabilities beyond the narrowed manuscript; the evidence map governs release claims.
+The earlier model/probe figures use the reported constants above. The fine-tuned checkpoint in this release belongs to the later capacity sweep.

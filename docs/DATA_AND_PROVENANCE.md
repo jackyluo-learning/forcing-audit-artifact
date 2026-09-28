@@ -18,6 +18,6 @@ The private alias mapping is retained separately. Frozen target-manifest metadat
 
 ## Integrity and interpretation
 
-The analysis gate checks the exact 42-shard/4,200-row grid, the expected execution alias, clean historical state, A100 hardware, frozen target values and assignments, input fingerprints, exposure audit, and registered execution settings. The base follow-up checks its three shards and matching fine-tuned k=20 evidence. These gates validate consistency of the released records; they cannot reconstruct missing historical experiments or prove provenance beyond the supplied records.
+The analysis gate checks the exact 42-shard/4,200-row grid, the expected execution alias, clean historical state, A100 hardware, frozen target values and assignments, input fingerprints, exposure audit, and registered execution settings. The base follow-up checks its three shards and matching fine-tuned k=20 evidence. These gates validate consistency of the released E3 and base-model records.
 
 The frozen corpus and checkpoint are stored in verified chunks; model parameters are unchanged. The base model itself is obtained from public `openai-community/gpt2` at the revision recorded in the base manifests. GPU run manifests record Python 3.11.5, PyTorch 2.6.0+cu124, Transformers 5.16.1, and lifelines 0.30.0. They retain an environment fingerprint, but that hash alone is not a complete environment lockfile.

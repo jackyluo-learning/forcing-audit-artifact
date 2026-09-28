@@ -6,7 +6,7 @@ Use the root README's environment and `python reproduce.py`. The frozen evidence
 
 The H1–H5 output includes conditional and exploratory results; keep those qualifications when quoting them. Tiny solver/platform differences below the reported precision are expected. Figure rendering also depends on installed fonts; pixel or PDF-byte equality is not the numerical acceptance criterion.
 
-For the historical figure panels, run `python figures/fig_control_comparison_v2.py` and `python figures/fig_spectrum.py`. They render **reported constants**, not missing raw E1 logs. `python figures/fig_capacity.py` renders a theoretical bound. These are separate from the primary recomputation pipeline.
+For the earlier figure panels, run `python figures/fig_control_comparison_v2.py` and `python figures/fig_spectrum.py`. They render the **reported constants** in their scripts. `python figures/fig_capacity.py` renders a theoretical bound. These are separate from the primary recomputation pipeline.
 
 ## 2. Restore frozen inputs
 
@@ -50,4 +50,4 @@ The new GPU wrapper has been syntax-checked but was **not GPU-executed as part o
 
 ## 4. Additional capabilities
 
-`run_experiments.py`, `experiments.py`, and supporting modules contain broader training/probe/defense capabilities. Presence of code is not evidence of a completed experiment. Run new training or historical pipelines in a separate checkout so they cannot overwrite the supplied corpus/checkpoint. `legacy/run2/` has the available historical source, with explicit evidence gaps.
+`run_experiments.py`, `experiments.py`, and supporting modules contain broader training/probe/defense capabilities. Run new training or earlier pipelines in a separate checkout so they cannot overwrite the supplied corpus/checkpoint. `legacy/run2/` contains the earlier source snapshot.

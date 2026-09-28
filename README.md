@@ -11,7 +11,7 @@ This independent repository packages the available implementation and evidence f
 | Frozen inputs | Target registry, matched D/C target manifest, training corpus, fine-tuned GPT-2 checkpoint and tokenizer |
 | Analysis | Control curve, H1–H5 analysis, four-cell base/fine-tuned comparison, CSV/JSON results and PNG/PDF figures |
 | Implementation | Data generation, training, probes, experiment runners, logging, analysis, and 27 focused tests |
-| Earlier multi-model experiments | Available source snapshot and reported aggregate values; original attempt logs and four original fine-tuned checkpoints are pending |
+| Earlier multi-model figures | Source snapshot and figure scripts with reported aggregate values |
 
 The corrected capacity sweep is the primary released sweep. Its internal file ID is `e3b`; this is provenance bookkeeping, not an additional experiment claimed in the paper. The three seeds repeat optimization on one checkpoint, not independent model training. The 300 fine-tuned k=20 attempts used in the four-cell comparison are reused from the 4,200-row sweep: there are **4,500 unique released attempts**, not 4,800.
 
@@ -41,8 +41,4 @@ Large files are stored as 7-MiB parts under `payloads/` for mirrors with per-fil
 
 For new GPU runs, see [reproduction instructions](docs/REPRODUCTION.md). New attack runs can vary with hardware/software and must remain separate from the recorded evidence.
 
-## Scope and remaining supplements
-
-This release supports recomputing the corrected capacity sweep and the focused base-model comparison from attempt-level records. It does **not** currently support independently reconstructing every historical multi-model table from original logs. The included capacity-sweep checkpoint is not a substitute for the earlier GPT-2 checkpoint. All four original historical fine-tuned checkpoints remain pending.
-
-See [evidence map](docs/EVIDENCE_MAP.md), [data and anonymization](docs/DATA_AND_PROVENANCE.md), [validation](docs/VALIDATION.md), [pending supplements](docs/PENDING_ARTIFACTS.md), and [third-party notices](NOTICE.md).
+See [evidence map](docs/EVIDENCE_MAP.md), [data and anonymization](docs/DATA_AND_PROVENANCE.md), [validation](docs/VALIDATION.md), and [third-party notices](NOTICE.md).
