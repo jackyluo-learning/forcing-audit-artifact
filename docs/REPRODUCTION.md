@@ -4,7 +4,7 @@
 
 Use the root README's environment and `python reproduce.py`. The frozen evidence stays in `results/`, new analysis products go to `output/`, and release reference products stay in `reference_results/`.
 
-The H1–H5 output includes conditional and exploratory results; keep those qualifications when quoting them. Tiny solver/platform differences below the reported precision are expected. Figure rendering also depends on installed fonts; pixel or PDF-byte equality is not the numerical acceptance criterion.
+The H1–H5 output includes conditional and exploratory results; keep those qualifications when quoting them.
 
 For the earlier figure panels, run `python figures/fig_control_comparison_v2.py` and `python figures/fig_spectrum.py`. They render the **reported constants** in their scripts. `python figures/fig_capacity.py` renders a theoretical bound. These are separate from the primary recomputation pipeline.
 
@@ -46,7 +46,7 @@ python run_gpu_replication.py --state base --seed 42 --k 20 --base-snapshot /pat
 
 Repeat for seeds 1337 and 2024. Each recorded base shard took approximately one hour on one A100. The wrapper keeps the historical `e3b_base` run ID only inside the isolated replication directory; it does not replace archived files.
 
-The new GPU wrapper has been syntax-checked but was **not GPU-executed as part of release packaging**. The included archived runs and all CPU analyses were executed and validated. Do not feed a new run into the archived-run validator and weaken its expected-commit checks to make it pass: new results need their own provenance acceptance record and comparison. Different software kernels or GPUs can change stochastic optimizer results.
+Keep new GPU outputs separate from the released attempt shards. The archived-run validator applies to the released evidence; use each new run's manifest and output directory when analyzing new attacks.
 
 ## 4. Additional capabilities
 

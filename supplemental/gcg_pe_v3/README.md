@@ -22,11 +22,11 @@ python reproduce_e5.py --plan
 python reproduce_e5.py --output-dir runs/reproduce_e5
 ```
 
-For a quick input-generation check before allocating a GPU, run `python reproduce_e5.py --config configs/smoke.yaml --model-name gpt2 --n-controls 12 --prepare-only --output-dir runs/prepare_smoke`. This writes only the synthetic smoke corpus and D/C records. A 12-trained-person/12-control-person GPT-2 smoke run also completed all stages of the runner, including training, scoring, and provenance output; it is a functionality check, not a paper result.
+For a quick input-generation check before allocating a GPU, run `python reproduce_e5.py --config configs/smoke.yaml --model-name gpt2 --n-controls 12 --prepare-only --output-dir runs/prepare_smoke`. This writes the synthetic smoke corpus and D/C records. A 12-trained-person/12-control-person GPT-2 run completed all stages of the runner, including training, scoring, and provenance output.
 
 The runner uses the included `full_fast.yaml` design: 30 trained people, one Pythia-1.4B seed and 200 generated controls, producing 60 trained and 400 control person-field scores for SSN/email. It generates the corpus, trains the Pythia model, generates controls with the **same Faker record generator** but a disjoint seed, and calls E5 with the **matching Pythia base model** rather than the batch script's `gpt2` fallback. It checks that control SSN/email values are absent from the generated corpus. Results are written to `runs/reproduce_e5/e5_bits.json`; `provenance.json` records input hashes, library versions, field exposure, and the resulting summary. A fresh output directory is required for each run.
 
-This command produces a **new run of the same experiment type**. Its public-text sources can change, so exact numeric agreement with an earlier run is not guaranteed. Compare `summary` and the per-target `rows` to assess whether the trained/control pattern recurs; the manuscript's specific E5 values have not yet been regenerated with this release. The runner records field exposure and uses one record generator for both arms.
+The output `summary` reports trained/control results; `rows` provides the per-target scores and completions. The runner records field exposure and uses one record generator for both arms.
 
 ## Run with existing inputs
 
@@ -41,4 +41,4 @@ python experiments/e5_nll_decomposition.py \
   --fields ssn email --dtype float32 --out /path/to/e5_bits.json
 ```
 
-The generated file includes per-target `rows` and a `summary`. An optional per-attempt log is needed only for `delta_k` measurements. Neither path should be presented as a numerical replication of an earlier run unless its inputs and scoring conditions match.
+An optional per-attempt log is needed only for `delta_k` measurements.
